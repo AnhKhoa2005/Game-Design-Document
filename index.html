@@ -1,0 +1,3082 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bản thiết kế Game - TRÁI TIM AETHEL: DI SẢN THỨC TỈNH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="text-gray-300">
+    <div class="container mx-auto p-4 md:p-8">
+      <header
+        class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8"
+      >
+        <div class="flex items-center space-x-4">
+          <img
+            src="images/Logogame.png"
+            alt="Logo Trái Tim Aethel"
+            class="rounded-lg"
+            width="100"
+          />
+          <div>
+            <h1 class="text-3xl font-bold text-white">
+              TRÁI TIM AETHEL: DI SẢN THỨC TỈNH
+            </h1>
+            <p class="text-sm text-gray-400 mt-1">Game Design Document</p>
+            <p class="text-xs text-gray-500">
+              GA20301 - Nhóm QAK - Assignment: Adventure Puzzle Game
+            </p>
+          </div>
+        </div>
+        <div class="flex space-x-2 mt-4 md:mt-0">
+          <span
+            class="bg-purple-900/50 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/30"
+            >Adventure Puzzle</span
+          >
+          <span
+            class="bg-orange-900/50 text-orange-300 text-xs font-semibold px-3 py-1 rounded-full border border-orange-500/30"
+            >Top-Down Exploration</span
+          >
+        </div>
+      </header>
+
+      <main class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div
+          class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-2xl border border-gray-700/50 glow-card flex flex-col"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 bg-sky-500/20 rounded-full flex items-center justify-center mr-3"
+            >
+              <i data-lucide="user" class="text-sky-300"></i>
+            </div>
+            <div>
+              <h2 class="font-bold text-lg text-white">Lâm</h2>
+              <p class="text-sm text-gray-400">Nhà khảo cổ trẻ</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <img
+              src="images/Lam.png"
+              alt="Hình ảnh nhân vật Lâm"
+              class="rounded-lg w-full object-cover"
+            />
+            <p class="text-xs text-gray-400 mt-2 italic text-center">
+              Tìm kiếm Trái Tim Aethel để minh oan cho ông nội
+            </p>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-2">
+            <span
+              class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-3 py-1 rounded-full border border-sky-500/30"
+              ># Thông minh</span
+            >
+            <span
+              class="bg-purple-900/50 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/30"
+              ># Quan sát</span
+            >
+            <span
+              class="bg-rose-900/50 text-rose-300 text-xs font-semibold px-3 py-1 rounded-full border border-rose-500/30"
+              ># Quyết tâm</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-green-950/40 backdrop-blur-sm p-6 rounded-2xl border border-green-700/50 glow-card flex flex-col"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center mr-3"
+            >
+              <i data-lucide="leaf" class="text-emerald-300"></i>
+            </div>
+            <div>
+              <h2 class="font-bold text-lg text-white">Naila</h2>
+              <p class="text-sm text-gray-400">Người dân địa phương</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <img
+              src="images/Naila.png"
+              alt="Hình ảnh Naila"
+              class="rounded-lg w-full object-cover"
+            />
+            <p class="text-xs text-gray-400 mt-2 italic text-center">
+              Cô gái am hiểu những truyền thuyết cổ xưa
+            </p>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-2">
+            <span
+              class="bg-emerald-900/50 text-emerald-300 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-500/30"
+              ># Hướng dẫn</span
+            >
+            <span
+              class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-3 py-1 rounded-full border border-teal-500/30"
+              ># Kiến thức địa phương</span
+            >
+            <span
+              class="bg-lime-900/50 text-lime-300 text-xs font-semibold px-3 py-1 rounded-full border border-lime-500/30"
+              ># Lanh lợi</span
+            >
+          </div>
+        </div>
+      </main>
+
+      <section>
+        <div class="border-b border-gray-700">
+          <nav
+            id="tab-nav"
+            class="flex space-x-8 -mb-px overflow-x-auto"
+            aria-label="Tabs"
+          >
+            <a
+              href="#"
+              class="tab-item whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm tab-active"
+              data-tab="tab1"
+              >Y1: Game Elements</a
+            >
+            <a
+              href="#"
+              class="tab-item whitespace-nowrap py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-400 hover:text-gray-300 hover:border-gray-500"
+              data-tab="tab2"
+              >Y2: Development</a
+            >
+            <a
+              href="#"
+              class="tab-item whitespace-nowrap py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-400 hover:text-gray-300 hover:border-gray-500"
+              data-tab="tab3"
+              >Y3: Game Script</a
+            >
+            <a
+              href="#"
+              class="tab-item whitespace-nowrap py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-400 hover:text-gray-300 hover:border-gray-500"
+              data-tab="tab4"
+              >Plot Timeline</a
+            >
+            <a
+              href="#"
+              class="tab-item whitespace-nowrap py-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-400 hover:text-gray-300 hover:border-gray-500"
+              data-tab="tab5"
+              >Scenes & Quests</a
+            >
+          </nav>
+        </div>
+
+        <div id="tab-content" class="mt-8">
+          <div class="tab-pane active" id="tab1">
+            <div
+              class="bg-yellow-900/20 p-6 rounded-2xl border border-yellow-700/50 mb-8"
+            >
+              <p class="text-sm font-semibold text-yellow-300">
+                🎯 Y1 - 5 Yếu tố cơ bản của Game
+              </p>
+              <div class="flex items-center mt-4">
+                <img
+                  src="images/Logogame.png"
+                  alt="Logo nhỏ"
+                  class="rounded-md mr-3"
+                  width="100"
+                />
+                <div>
+                  <h3 class="font-semibold text-white">Trái Tim Aethel</h3>
+                  <p class="text-sm text-gray-400">
+                    Phân tích 5 yếu tố cốt lõi tạo nên trải nghiệm game hoàn
+                    chỉnh
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div
+                class="bg-blue-900/40 p-6 rounded-2xl border border-blue-700/50 space-y-4"
+              >
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="target" class="text-blue-300"></i>
+                  <h3 class="text-xl font-bold text-white">
+                    1. Mục Tiêu (Goal)
+                  </h3>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-blue-300 mb-2">
+                    Mục Tiêu Chính
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    Thu thập 3 viên ngọc aethel để tìm ra trái tim aethel
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-blue-300 mb-2">
+                    Mục Tiêu Phụ
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Giải mã các câu đố ở các vùng đất để tìm kiếm vật phẩm
+                      giúp qua màn
+                    </li>
+                    <li>Trốn chạy và ẩn nấp kẻ địch</li>
+                    <li>Khám phá ra bí mật về ông của nhân vật chính</li>
+                    <li>Lựa chọn ending: Người bảo vệ hoặc người mở lối</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-blue-300 mb-2">
+                    Động Lực Của Người Chơi
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    Giải đố để truy tìm manh mối, bí ẩn của câu chuyện, các cuộc
+                    truy đuổi và ẩn nấp kịch tính với kẻ địch
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-green-900/40 p-6 rounded-2xl border border-green-700/50 space-y-4"
+              >
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="scroll-text" class="text-green-300"></i>
+                  <h3 class="text-xl font-bold text-white">
+                    2. Quy Tắc (Rules)
+                  </h3>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-green-300 mb-2">
+                    Quy Tắc Chiến Đấu
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    Nhân vật tương tác với các vật thể xung quanh để ngăn cản kẻ
+                    địch
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-green-300 mb-2">
+                    Quy Tắc Tái Tiến
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Nhận được các vật mới sau khi hoàn thành mỗi màn chơi
+                    </li>
+                    <li>
+                      Nâng cấp vật phẩm thông qua nhiệm vụ ẩn để tăng sức mạnh
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-green-300 mb-2">
+                    Quy Tắc Thế Giới
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>NPC Naila, người chỉ đường cho nhân vật</li>
+                    <li>Lưu lại điểm dừng chân ở đầu mỗi màn chơi</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                class="bg-orange-900/40 p-6 rounded-2xl border border-orange-700/50 space-y-4"
+              >
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="swords" class="text-orange-300"></i>
+                  <h3 class="text-xl font-bold text-white">
+                    3. Thử Thách (Challenge)
+                  </h3>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-orange-300 mb-2">
+                    Thử Thách Sinh Tồn
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>Ẩn nấp khỏi sự truy đuổi của Chronos</li>
+                    <li>Thoát khỏi hang động đổ sập</li>
+                    <li>Tránh những dòng dung nham phun trào</li>
+                    <li>Phục kích kẻ thù ở hẻm núi</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-orange-300 mb-2">
+                    Thử Thách Giải Đố
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>Ghép địa đồ</li>
+                    <li>Tìm kiếm và ghép mảnh tấm thẻ pha lê</li>
+                    <li>Mê cung thời gian</li>
+                    <li>Điều khiển gương đá</li>
+                    <li>Mê cung bẫy</li>
+                    <li>Chướng ngại vật</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-orange-300 mb-2">
+                    Thử Thách Tường Thuật
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    Lựa chọn ending, lựa chọn giữa việc bảo vệ và lấy đi trái
+                    tim aethel
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-purple-900/40 p-6 rounded-2xl border border-purple-700/50 space-y-4"
+              >
+                <div class="flex items-center space-x-3">
+                  <i
+                    data-lucide="mouse-pointer-click"
+                    class="text-purple-300"
+                  ></i>
+                  <h3 class="text-xl font-bold text-white">
+                    4. Tương Tác (Interaction)
+                  </h3>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-purple-300 mb-2">
+                    Điều Khiển Cốt Lõi
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>Di chuyển: WASD</li>
+                    <li>Kỹ năng đặc biệt: 1, 2, 3</li>
+                    <li>Tương tác: Mouse left</li>
+                    <li>Inventory: Tab</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-purple-300 mb-2">
+                    Tương Tác NPC
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    Lại gần để trò chuyện, mouse left để tương tác
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-red-900/40 p-6 rounded-2xl border border-red-700/50 space-y-4 mb-8"
+            >
+              <div class="flex items-center space-x-3">
+                <i data-lucide="message-circle" class="text-red-300"></i>
+                <h3 class="text-xl font-bold text-white">
+                  5. Phản Hồi (Feedback)
+                </h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold text-md text-red-300 mb-2">
+                    Phản Hồi Hình Ảnh
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Hiệu ứng nhân vật sát thương: văng xa, rung màn hình
+                    </li>
+                    <li>
+                      Hiệu ứng môi trường: ánh sáng rọi lại khi kẻ địch đang
+                      truy tìm lại gần
+                    </li>
+                  </ul>
+                  <h4 class="font-semibold text-md text-red-300 mb-2 mt-4">
+                    Phản Hồi Âm Thanh
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Âm thanh nhân vật sát thương: Thở mạnh, tiếng kêu đau,
+                      hoảng loạn
+                    </li>
+                    <li>Nhạc nền: thay đổi theo từng map</li>
+                    <li>Giọng kể chuyện, phát hiện, độc thoại</li>
+                    <li>Giọng NPC thường trầm, nhẹ nhàng</li>
+                    <li>Âm thanh hoàn thành/thất bại, hồi hộp</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-md text-red-300 mb-2">
+                    Phản Hồi Tiến Triển
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Nhật ký cập nhật: Tự động ghi lại manh mối và các mảnh
+                      truyện đã khám phá
+                    </li>
+                    <li>
+                      Bản đồ thay đổi: Các khu vực đã giải xong được đánh dấu rõ
+                      ràng
+                    </li>
+                    <li>
+                      Thành tựu cho bí mật: Phần thưởng khi giải các câu đố phức
+                      tạp hoặc lối đi ẩn
+                    </li>
+                  </ul>
+                  <h4 class="font-semibold text-md text-red-300 mb-2 mt-4">
+                    Phản Hồi Cảm Xúc
+                  </h4>
+                  <ul
+                    class="list-disc list-inside text-sm text-gray-300 space-y-1"
+                  >
+                    <li>
+                      Hiệu ứng "Aha!": Âm thanh và hình ảnh thỏa mãn khi tìm ra
+                      lời giải
+                    </li>
+                    <li>
+                      Môi trường biến đổi: Giải xong câu đố làm thay đổi cả một
+                      khu vực (ví dụ: rừng cây bừng sáng)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+            >
+              <h3 class="text-lg font-bold text-white mb-4">
+                📝 Tổng kết 5 yếu tố
+              </h3>
+              <p class="text-sm text-gray-400 mb-6">
+                Trái Tim Aethel kết hợp hài hòa 5 yếu tố cơ bản để tạo trải
+                nghiệm game hoàn chỉnh:
+              </p>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center"
+              >
+                <div
+                  class="bg-blue-900/40 p-3 rounded-lg border border-blue-700/50"
+                >
+                  <i
+                    data-lucide="target"
+                    class="mx-auto mb-2 text-blue-300"
+                  ></i>
+                  <p class="text-xs font-semibold">Mục tiêu rõ ràng</p>
+                </div>
+                <div
+                  class="bg-green-900/40 p-3 rounded-lg border border-green-700/50"
+                >
+                  <i
+                    data-lucide="scroll-text"
+                    class="mx-auto mb-2 text-green-300"
+                  ></i>
+                  <p class="text-xs font-semibold">Quy tắc logic</p>
+                </div>
+                <div
+                  class="bg-orange-900/40 p-3 rounded-lg border border-orange-700/50"
+                >
+                  <i
+                    data-lucide="swords"
+                    class="mx-auto mb-2 text-orange-300"
+                  ></i>
+                  <p class="text-xs font-semibold">Thử thách đa dạng</p>
+                </div>
+                <div
+                  class="bg-purple-900/40 p-3 rounded-lg border border-purple-700/50"
+                >
+                  <i
+                    data-lucide="mouse-pointer-click"
+                    class="mx-auto mb-2 text-purple-300"
+                  ></i>
+                  <p class="text-xs font-semibold">Tương tác mượt</p>
+                </div>
+                <div
+                  class="bg-red-900/40 p-3 rounded-lg border border-red-700/50"
+                >
+                  <i
+                    data-lucide="message-circle"
+                    class="mx-auto mb-2 text-red-300"
+                  ></i>
+                  <p class="text-xs font-semibold">Phản hồi tức thì</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane hidden" id="tab2">
+            <div
+              class="bg-green-900/20 p-6 rounded-2xl border border-green-700/50 mb-8"
+            >
+              <p class="text-sm font-semibold text-green-300">
+                🌱 Y2 - Phác thảo ý tưởng cho sản phẩm game
+              </p>
+              <div class="flex items-center mt-4">
+                <img
+                  src="images/Logogame.png"
+                  alt="Logo nhỏ"
+                  class="rounded-md mr-3"
+                  width="100"
+                />
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Trái Tim Aethel: Di Sản Thức Tỉnh
+                  </h3>
+                  <p class="text-sm text-gray-400">
+                    Adventure Puzzle Top-Down - 5 giai đoạn phát triển game
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div
+                  class="bg-blue-900/40 p-6 rounded-2xl border border-blue-700/50 space-y-4"
+                >
+                  <div class="flex items-center space-x-3">
+                    <i data-lucide="lightbulb" class="text-blue-300"></i>
+                    <h3 class="text-xl font-bold text-white">
+                      1. Xác định Ý tưởng và Mục tiêu
+                    </h3>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-blue-300 mb-2">
+                      Ý tưởng Game
+                    </h4>
+                    <p class="text-sm">
+                      Game Phiêu lưu Giải đố (Adventure Puzzle) Top-Down về nhà
+                      khảo cổ tìm kiếm công nghệ cổ đại để minh oan cho ông nội
+                      và cứu làng khỏi "lời nguyền"
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-blue-300 mb-2">
+                      Mục tiêu Hướng tới
+                    </h4>
+                    <p class="text-sm">
+                      Mang cảm giác phiêu lưu, khám phá cổ điển, thử thách bằng
+                      giải đố logic, và lựa chọn đạo đức khó khăn về số phận của
+                      làng.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-blue-300 mb-2">
+                      Điểm khác biệt (USP)
+                    </h4>
+                    <p class="text-sm">
+                      Giải đố dựa trên kiến thức khảo cổ (phiên âm, âm thanh cổ)
+                      và sử dụng môi trường để đặt bẫy (đánh động lén lút).
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-green-900/40 p-6 rounded-2xl border border-green-700/50 space-y-4"
+                >
+                  <div class="flex items-center space-x-3">
+                    <i data-lucide="search" class="text-green-300"></i>
+                    <h3 class="text-xl font-bold text-white">
+                      2. Nghiên cứu và Phân tích
+                    </h3>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-green-300 mb-2">
+                      Game Tham khảo
+                    </h4>
+                    <ul class="list-disc list-inside text-sm">
+                      <li>Undertale (cốt truyện sâu sắc)</li>
+                      <li>Omori (yếu tố cảm xúc)</li>
+                      <li>OneShot, Eastward, Lisa (phong cách adventure)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-green-300 mb-2">
+                      Đối tượng Người chơi
+                    </h4>
+                    <p class="text-sm">
+                      15-30 tuổi, yêu game indie/pixel-art/RPG-lite, quan tâm
+                      cốt truyện, triết lý, cảm xúc, thay vì gameplay hành động.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div
+                  class="bg-orange-900/40 p-6 rounded-2xl border border-orange-700/50 space-y-4"
+                >
+                  <div class="flex items-center space-x-3">
+                    <i data-lucide="globe-2" class="text-orange-300"></i>
+                    <h3 class="text-xl font-bold text-white">
+                      3. Xây dựng Cốt truyện và Thế giới
+                    </h3>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-orange-300 mb-2">
+                      Xây dựng Thế giới
+                    </h4>
+                    <p class="text-sm">
+                      Thế giới hiện đại ẩn chứa nền văn minh Tula cổ đại với di
+                      tích huyền bí. Thung lũng Vong Lãng chứa Trái Tim Aethel -
+                      kho báu có thể chữa lành hoặc hủy diệt.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-orange-300 mb-2">
+                      Địa điểm Chính
+                    </h4>
+                    <ul class="list-disc list-inside text-sm">
+                      <li>Làng ven rừng Vong Lãng (khởi đầu, gặp Naila)</li>
+                      <li>Đền Thờ (màn 1, giải đố cơ bản, gặp GS Trần)</li>
+                      <li>Hầm Mộ Tiên Tri (màn 2, bẫy tinh vi, Vệ Binh đá)</li>
+                      <li>Núi Lửa Nguồn Cội (màn 3+cuối, địa hình hiểm trở)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="bg-purple-900/40 p-6 rounded-2xl border border-purple-700/50 space-y-4"
+                >
+                  <div class="flex items-center space-x-3">
+                    <i data-lucide="users" class="text-purple-300"></i>
+                    <h3 class="text-xl font-bold text-white">
+                      4. Thiết kế Nhân vật và NPC
+                    </h3>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-purple-300 mb-2">
+                      Nhân vật Chính - Lâm
+                    </h4>
+                    <p class="text-sm">
+                      Nhà khảo cổ trẻ vừa tốt nghiệp (nam). Tính cách: Thông
+                      minh, quan sát, quyết tâm minh oan cho ông nội.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-purple-300 mb-2">
+                      Đồng minh - Naila
+                    </h4>
+                    <p class="text-sm">
+                      Cô gái địa phương thông minh, lanh lợi, hiểu rõ truyền
+                      thuyết và vùng đất. Hỗ trợ Lâm trong hành trình.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-red-900/40 p-6 rounded-2xl border border-red-700/50 space-y-4"
+              >
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="gamepad-2" class="text-red-300"></i>
+                  <h3 class="text-xl font-bold text-white">
+                    5. Xây dựng Gameplay và Cơ chế
+                  </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Vòng lặp Cốt lõi
+                    </h4>
+                    <p class="text-sm">
+                      Thám hiểm — Giải đố — Tránh/Đối đầu kẻ thù — Nhận phần
+                      thưởng — Tiến triển câu chuyện — Lặp lại
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Cảnh 3: Núi Lửa Nguồn Cội
+                    </h4>
+                    <p class="text-sm">
+                      Điều khiển gương đá phản chiếu. Thử thách: Tránh dung nham
+                      phun trào
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Cơ chế Độc đáo
+                    </h4>
+                    <ul class="list-disc list-inside text-sm">
+                      <li>
+                        Giải đố thiên văn (dịch chính văn tự, sao, ánh sáng)
+                      </li>
+                      <li>Giải đố âm thanh cổ (dịch số, giai điệu)</li>
+                      <li>Đặt bẫy môi trường (đá rơi, cơ chế cổ)</li>
+                      <li>Hành động lén lút (stealth), tránh tuần tra</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Cảnh 4: Màn Cuối
+                    </h4>
+                    <p class="text-sm">
+                      Giải đố chướng ngại. Thử thách: Vượt mê cung bẫy để đến
+                      Trái Tim Aethel
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Hệ thống Tiến trình
+                    </h4>
+                    <p class="text-sm">
+                      Thu thập công cụ khảo cổ, mở khóa vùng mới, nâng cấp thiết
+                      bị, học kiến thức Tula
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Tính năng UI/UX
+                    </h4>
+                    <p class="text-sm">
+                      Nhật ký khảo cổ (ghi chú manh mối), bản đồ đánh dấu, hệ
+                      thống gợi ý giải đố (tùy chọn)
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Cảnh 1: Đền Thờ Chim Ưng
+                    </h4>
+                    <p class="text-sm">
+                      Tìm địa đồ manh mối. Thử thách: Ẩn nấp khỏi lính Chronos
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Thiết kế Đối đầu
+                    </h4>
+                    <p class="text-sm">
+                      Tránh trực diện, sử dụng môi trường và lén lút. Boss: Vệ
+                      Binh đá (nhận dạng pattern, thời điểm tấn công).
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-md text-red-300 mb-2">
+                      Cảnh 2: Hầm Mộ Tiên Tri
+                    </h4>
+                    <p class="text-sm">
+                      Lấy thẻ pha lê. Thử thách: Chạy trốn khỏi hang động sập
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <h3 class="text-lg font-bold text-white mb-4">
+                  ✅ Checklist tiến độ phát triển
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+                  <div>
+                    <h4 class="font-semibold text-green-400 mb-2">
+                      Concept ✔️
+                    </h4>
+                    <ul class="space-y-1">
+                      <li>✔️ Game Design Document</li>
+                      <li>✔️ Story outline</li>
+                      <li>✔️ Character design</li>
+                      <li>✔️ Level layout</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-blue-400 mb-2">
+                      Production Production 🔄
+                    </h4>
+                    <ul class="space-y-1">
+                      <li>🔄 Cảnh 1: Đền Thờ</li>
+                      <li>🔄 Cảnh 2: Hầm Mộ</li>
+                      <li>🔄 Cảnh 3: Núi lửa</li>
+                      <li>🔄 Cảnh 4: Finale</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-yellow-400 mb-2">
+                      Polish ⏳
+                    </h4>
+                    <ul class="space-y-1">
+                      <li>⏳ Puzzle testing</li>
+                      <li>⏳ Sound design</li>
+                      <li>⏳ UI/UX polish</li>
+                      <li>⏳ Balancing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <h3 class="text-lg font-bold text-white mb-4">
+                  ℹ️ Thông tin dự án
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">Tên Game</h4>
+                    <p>Trái Tim Aethel: Di Sản Thức Tỉnh</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">Thể loại</h4>
+                    <p>Adventure Puzzle, Top-Down</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">Platform</h4>
+                    <p>PC (Steam), Console (Switch, PS)</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">
+                      Thời gian chơi
+                    </h4>
+                    <p>8-12h (main story)</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">Team</h4>
+                    <p>Nhóm QAK (3 người)</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-400 mb-1">Môn học</h4>
+                    <p>GA20301 - Assignment</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane hidden" id="tab3">
+            <div
+              class="bg-purple-900/20 p-6 rounded-2xl border border-purple-700/50 mb-8"
+            >
+              <p class="text-sm font-semibold text-purple-300">
+                ✍️ Y3 - Kịch bản Game (Game Script)
+              </p>
+              <div class="flex items-center mt-4">
+                <img
+                  src="images/Logogame.png"
+                  alt="Logo nhỏ"
+                  class="rounded-md mr-3"
+                  width="100"
+                />
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Trái Tim Aethel: Di Sản Thức Tỉnh
+                  </h3>
+                  <p class="text-sm text-gray-400">
+                    USP Analysis → Lore Pillar (Cốt truyện & Nhân vật) → Core
+                    Loop → 4 Phân Cảnh Chi Tiết
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-12">
+              <section>
+                <h2 class="text-2xl font-bold text-white mb-6">
+                  <span
+                    class="bg-purple-500/20 text-purple-300 rounded-lg px-3 py-1 text-xl mr-2"
+                    >Y3.1</span
+                  >
+                  Phân Tích USP (Unique Selling Points)
+                </h2>
+                <div
+                  class="bg-gray-900/70 p-4 rounded-xl border border-gray-700/50 mb-6 text-center text-sm"
+                >
+                  <p>
+                    So với các Adventure Puzzle Game khác, game của chúng tôi
+                    mang đến trải nghiệm độc đáo qua các yếu tố sau:
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div
+                    class="bg-green-900/40 p-6 rounded-2xl border border-green-700/50 space-y-3"
+                  >
+                    <h3
+                      class="font-bold text-lg text-green-300 flex items-center"
+                    >
+                      <i data-lucide="puzzle" class="mr-2"></i>Giải Đố Khảo Cổ
+                      Độc Đáo
+                    </h3>
+                    <p class="text-sm">
+                      <strong class="text-gray-300">Khác biệt:</strong> Không
+                      chỉ là giải đố logic thông thường, puzzle dựa trên kiến
+                      thức khảo cổ thực tế (thiên văn, âm thanh cổ đại, ký tự
+                      Tula).
+                    </p>
+                    <div>
+                      <h4 class="font-semibold text-sm text-gray-400 mb-1">
+                        Gameplay Impact:
+                      </h4>
+                      <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>
+                          Giải đố thiên văn: căn chỉnh vị trí sao, hội tụ ánh
+                          sáng
+                        </li>
+                        <li>Giải đố âm thanh: tần số, giai điệu cổ xưa</li>
+                        <li>Ghép mảnh địa đồ và thẻ pha lê với ký tự Tula</li>
+                        <li>Học hỏi kiến thức lịch sử qua gameplay</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-yellow-900/40 p-6 rounded-2xl border border-yellow-700/50 space-y-3"
+                  >
+                    <h3
+                      class="font-bold text-lg text-yellow-300 flex items-center"
+                    >
+                      <i data-lucide="footprints" class="mr-2"></i>Stealth & Môi
+                      Trường Tương Tác
+                    </h3>
+                    <p class="text-sm">
+                      <strong class="text-gray-300">Khác biệt:</strong> Thay vì
+                      combat trực tiếp, player sử dụng môi trường và lén lút để
+                      vượt qua thử thách.
+                    </p>
+                    <div>
+                      <h4 class="font-semibold text-sm text-gray-400 mb-1">
+                        Gameplay Impact:
+                      </h4>
+                      <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>
+                          Đặt bẫy môi trường (đá rơi, cơ chế cổ, dung nham)
+                        </li>
+                        <li>Ẩn nấp khỏi lính Chronos (stealth mechanics)</li>
+                        <li>Sử dụng địa hình để phục kích</li>
+                        <li>Tránh boss thay vì đánh (strategy > strength)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-blue-900/40 p-6 rounded-2xl border border-blue-700/50 space-y-3"
+                  >
+                    <h3
+                      class="font-bold text-lg text-blue-300 flex items-center"
+                    >
+                      <i data-lucide="map" class="mr-2"></i>Thế Giới Mở & Nhiệm
+                      Vụ Ẩn
+                    </h3>
+                    <p class="text-sm">
+                      <strong class="text-gray-300">Khác biệt:</strong> Không
+                      linear, có nhiều lối đi bí mật và nhiệm vụ ẩn để nâng cấp
+                      vật phẩm.
+                    </p>
+                    <div>
+                      <h4 class="font-semibold text-sm text-gray-400 mb-1">
+                        Gameplay Impact:
+                      </h4>
+                      <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Khám phá tự do trong Thung lũng Vong Lãng</li>
+                        <li>
+                          Nhiệm vụ ẩn: Mê cung thời gian, cánh cổng quá khứ
+                        </li>
+                        <li>Nâng cấp tấm thẻ pha lê qua hidden quest</li>
+                        <li>Replayability cao với multiple paths</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-rose-900/40 p-6 rounded-2xl border border-rose-700/50 space-y-3"
+                  >
+                    <h3
+                      class="font-bold text-lg text-rose-300 flex items-center"
+                    >
+                      <i data-lucide="git-branch" class="mr-2"></i>Lựa Chọn Đạo
+                      Đức Phức Tạp
+                    </h3>
+                    <p class="text-sm">
+                      <strong class="text-gray-300">Khác biệt:</strong> Không có
+                      "good/evil" rõ ràng - mỗi ending đều có ý nghĩa sâu sắc
+                      riêng.
+                    </p>
+                    <div>
+                      <h4 class="font-semibold text-sm text-gray-400 mb-1">
+                        Branching Narrative:
+                      </h4>
+                      <ul class="list-disc list-inside text-sm space-y-1">
+                        <li>Ending 1: Người Bảo Vệ (bảo vệ di sản)</li>
+                        <li>Ending 2: Người Mở Lối (giải phóng năng lượng)</li>
+                        <li>Quyết định cuối ảnh hưởng số phận thế giới</li>
+                        <li>Không có lựa chọn "đúng" tuyệt đối</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-gray-900/70 p-4 mt-8 rounded-xl border border-gray-700/50 text-center text-sm"
+                >
+                  <p>
+                    💡
+                    <strong class="text-white">Tóm tắt USP Core:</strong> "Trái
+                    Tim Aethel" không chỉ là Adventure Puzzle thông thường, mà
+                    là trải nghiệm khảo cổ-giải đố nơi player phải sử dụng trí
+                    tuệ, quan sát và chiến thuật thay vì sức mạnh. Kết hợp
+                    stealth, exploration và lựa chọn đạo đức với hậu quả thực
+                    sự.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 class="text-2xl font-bold text-white mb-6">
+                  <span
+                    class="bg-blue-500/20 text-blue-300 rounded-lg px-3 py-1 text-xl mr-2"
+                    >Y3.2</span
+                  >
+                  Lore Pillar - Trụ Cột Thế Giới Quan
+                </h2>
+
+                <div
+                  class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 mb-8"
+                >
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    1. Cốt truyện chi tiết
+                  </h3>
+
+                  <h4 class="font-semibold text-lg text-blue-300 mb-2">
+                    🌍 Bối cảnh thế giới
+                  </h4>
+                  <h5 class="font-semibold text-md text-gray-300 mb-2">
+                    Thế giới — Vong Lãng & Di Sản Tula
+                  </h5>
+                  <p class="text-sm mb-4">
+                    Một lục địa phủ sương và tàn tích cổ xưa, nơi nền văn minh
+                    Tula từng đạt đến trình độ kỹ thuật-ý thức kỳ lạ. Ở trung
+                    tâm truyền thuyết là Trái Tim Aethel — một khối năng lượng
+                    tinh khiết vừa chữa lành, vừa hủy diệt nếu bị lạc chỗ. Giáo
+                    sư Hoàng An, người say mê nghiên cứu Tula, qua đời trong sự
+                    nghi ngờ; di sản duy nhất ông để lại cho cháu là một phòng
+                    bản đồ và nhật ký chứa mật mã thiên văn dẫn đến Thung lũng
+                    Vong Lãng — nơi Trái Tim được bảo vệ và lời nguyền bắt
+                    nguồn.
+                  </p>
+
+                  <h4 class="font-semibold text-lg text-blue-300 mb-2">
+                    🗺️ Các vùng chính bị ảnh hưởng
+                  </h4>
+                  <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                    <li>
+                      <strong>Thung lũng Vong Lãng</strong> — vùng lõi của lời
+                      nguyền, sương mù dày, tàn tích Tula, nơi hành trình bắt
+                      đầu.
+                    </li>
+                    <li>
+                      <strong>Đền Thờ Chim Ưng</strong> — cao điểm khảo cổ đầu
+                      tiên: câu đố thiên văn, cơ chế ánh sáng, nơi gặp Kael và
+                      Chronos.
+                    </li>
+                    <li>
+                      <strong>Hầm Mộ Nhà Tiên Tri Mù</strong> — mê cung ngầm,
+                      bẫy tinh vi, thử thách âm thanh; nơi bộc lộ sự phản bội.
+                    </li>
+                    <li>
+                      <strong>Nguồn Cội (Ngọn núi lửa đã tắt)</strong> — trung
+                      tâm năng lượng, nơi Trái Tim Aethel nằm; địa hình khắc
+                      nghiệt, quyết định cuối cùng.
+                    </li>
+                  </ul>
+
+                  <h4 class="font-semibold text-lg text-blue-300 mb-2">
+                    ⚡ Nhiệm vụ chính (Main Quest)
+                  </h4>
+                  <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                    <li>
+                      Khám phá nhật ký ông nội, giải mật mã thiên văn → tìm tọa
+                      độ Vong Lãng.
+                    </li>
+                    <li>
+                      Hợp tác với dân bản địa, thu thập ba “Viên Ngọc Aethel”
+                      (mỗi viên ẩn trong một địa điểm/ông đền/hầm).
+                    </li>
+                    <li>Vượt qua Đền Thờ Chim Ưng → lấy manh mối đĩa đá.</li>
+                    <li>Vào Hầm Mộ Nhà Tiên Tri → ghép tấm thẻ pha lê.</li>
+                    <li>
+                      Mở Cánh Cổng Ký Ức → nâng cấp thẻ thành Thẻ Thức Tỉnh.
+                    </li>
+                    <li>
+                      Đua đến Nguồn Cội, đối đầu Kael → đưa ra lựa chọn định
+                      mệnh về Trái Tim Aethel.
+                    </li>
+                  </ul>
+
+                  <h4 class="font-semibold text-lg text-blue-300 mb-2">
+                    🔮 Xung đột ẩn & Các phe phái
+                  </h4>
+                  <div class="space-y-3">
+                    <div>
+                      <h5 class="font-semibold text-md text-rose-300">
+                        Tập đoàn Chronos
+                      </h5>
+                      <ul class="list-disc list-inside text-sm space-y-1 pl-4">
+                        <li>
+                          Tập đoàn săn cổ vật, quân đội tháng lăm, lãnh đạo:
+                          Kael.
+                        </li>
+                        <li>
+                          Mục tiêu: chiếm Trái Tim để biến nó thành nguồn lực
+                          kiểm soát / vũ khí.
+                        </li>
+                        <li>
+                          Phương pháp: mua chuộc, bạo lực, khai thác công nghệ
+                          Tula vì lợi ích.
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-md text-green-300">
+                        Bản địa & Hội Bảo Hộ
+                      </h5>
+                      <ul class="list-disc list-inside text-sm space-y-1 pl-4">
+                        <li>
+                          Những gia tộc giữ truyền thống Tula, canh giữ bí mật
+                          và nghi thức. Họ là nguồn thông tin, quest side và
+                          thân nhân NPC.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 mb-8"
+                >
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    2. Nhân vật (Player và NPC)
+                  </h3>
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div
+                      class="bg-sky-950/50 p-4 rounded-lg border border-sky-800"
+                    >
+                      <h4 class="font-semibold text-sky-300 text-lg">
+                        🔬 Lê Nhật Lâm
+                      </h4>
+                      <p class="text-sm text-gray-400 mb-2">
+                        Nhân vật chính - Nhà khảo cổ trẻ
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Ngoại hình:</strong> Nam,
+                        khoảng 25 tuổi, vừa tốt nghiệp ngành khảo cổ, dáng cao
+                        gầy, đeo mắt kính tròn và chiếc ba lô nặng trĩu công cụ
+                        khảo sát. Trang phục dã chiến giản dị, luôn mang theo
+                        cuốn sổ tay cũ của ông nội.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Tính cách:</strong> Thông
+                        minh, điềm tĩnh, có óc quan sát và tư duy logic. Ban đầu
+                        thiếu tự tin, bị ám ảnh bởi danh tiếng “kẻ điên” của ông
+                        nội – Giáo sư Hoàng An. Qua hành trình, anh trưởng
+                        thành, học được rằng “tri thức không chỉ để chứng minh,
+                        mà để thấu hiểu và cứu người”.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Điểm đặc biệt:</strong>
+                        Giỏi giải đố và đọc ký hiệu cổ Tula. Có khả năng phân
+                        tích môi trường và tận dụng địa hình để sinh tồn. Có
+                        kiến thức thiên văn học, dùng để giải mã các cơ chế cổ
+                        đại.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Động lực:</strong> Minh
+                        oan cho ông nội, tìm ra sự thật về văn minh Tula và cứu
+                        Naila cùng dân làng khỏi lời nguyền Trái Tim Aethel.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Xuất hiện:</strong> Tất cả
+                        các cảnh. Là nhân vật người chơi điều khiển chính xuyên
+                        suốt hành trình.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-emerald-950/50 p-4 rounded-lg border border-emerald-800"
+                    >
+                      <h4 class="font-semibold text-emerald-300 text-lg">
+                        🌿 Naila
+                      </h4>
+                      <p class="text-sm text-gray-400 mb-2">
+                        Đồng minh - Người dân địa phương
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Ngoại hình:</strong> Nữ,
+                        khoảng 23 tuổi, tóc đen dài buộc thấp, mặc trang phục
+                        truyền thống thổ cẩm, đeo túi thảo dược chữa thương bên
+                        hông. Dáng người nhanh nhẹn, ánh mắt cương nghị và nhân
+                        hậu.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Tính cách:</strong> Thông
+                        minh, nhạy bén, có phần thận trọng với người ngoài nhưng
+                        luôn đặt niềm tin vào điều thiện. Là người gắn bó sâu
+                        với đất và truyền thuyết của vùng Vong Lãng.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Điểm đặc biệt:</strong>
+                        Hiểu biết về ngôn ngữ, biểu tượng và nghi thức của người
+                        Tula. Biết chế tạo thảo dược, chữa trị trạng thái suy
+                        yếu hoặc nhiễm lời nguyền. Giỏi định hướng và sinh tồn
+                        trong địa hình rừng – núi – hang động.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Động lực:</strong> Cứu gia
+                        đình và dân làng khỏi lời nguyền Trái Tim Aethel, đồng
+                        thời bảo vệ vùng đất tổ tiên khỏi bị tàn phá bởi
+                        Chronos.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Xuất hiện:</strong> Từ
+                        Cảnh 1 trở đi, là đồng minh quan trọng. Hỗ trợ người
+                        chơi bằng thông tin, hướng dẫn, và khả năng chữa thương
+                        trong gameplay.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-rose-950/50 p-4 rounded-lg border border-rose-800"
+                    >
+                      <h4 class="font-semibold text-rose-300 text-lg">
+                        ⚔️ Kael
+                      </h4>
+                      <p class="text-sm text-gray-400 mb-2">
+                        Phản diện chính - Thủ lĩnh Tập đoàn Chronos
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Ngoại hình:</strong> Nam,
+                        khoảng 40 tuổi, mặc đồng phục chiến thuật màu đen xám,
+                        đeo áo giáp công nghệ, trên mặt có vết sẹo chạy dọc từ
+                        mắt xuống cằm. Ánh mắt sắc lạnh, luôn giữ nụ cười mỉa
+                        mai.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Tính cách:</strong> Lạnh
+                        lùng, tàn nhẫn, coi mọi thứ – kể cả con người – là
+                        phương tiện. Tin rằng “lịch sử được viết bởi kẻ đủ mạnh
+                        để nắm nó trong tay”.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Điểm đặc biệt:</strong>
+                        Lãnh đạo đội quân lính đánh thuê tinh nhuệ, sở hữu thiết
+                        bị quét năng lượng cổ đại. Có kiến thức rời rạc về Tula,
+                        khai thác công nghệ cổ để phục vụ dã tâm. Sử dụng chiến
+                        thuật tâm lý và săn đuổi liên tục, buộc người chơi luôn
+                        cảnh giác.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Động lực:</strong> Chiếm
+                        Trái Tim Aethel để tạo nguồn năng lượng vô song, thống
+                        trị thế giới và kiểm soát mọi tài nguyên cổ đại.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Xuất hiện:</strong> Cảnh
+                        1, 2, 3 – là mối đe dọa chính xuyên suốt. Boss cuối
+                        trước khi đến Trái Tim.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-amber-950/50 p-4 rounded-lg border border-amber-800"
+                    >
+                      <h4 class="font-semibold text-amber-300 text-lg">
+                        📚 Giáo Sư Trần
+                      </h4>
+                      <p class="text-sm text-gray-400 mb-2">
+                        Phản diện phụ - Thầy cũ phản bội
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Ngoại hình:</strong> Nam,
+                        khoảng 60 tuổi, tóc bạc, mặc vest cũ, đeo kính dày. Vẻ
+                        ngoài trầm tư, lịch thiệp, toát ra phong thái học giả
+                        nhưng ánh mắt ẩn giấu tham vọng và sự mệt mỏi.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Tính cách:</strong> Giả
+                        dối, tự phụ, luôn tin rằng mình đang phục vụ tri thức,
+                        dù phải phản bội. Từng là thầy hướng dẫn của Lâm, sau vì
+                        bất mãn và khát vọng danh tiếng mà hợp tác với Chronos.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Điểm đặc biệt:</strong>
+                        Hiểu sâu về khảo cổ Tula và những lý thuyết mà ngay cả
+                        Hoàng An cũng từng bỏ qua. Có khả năng thao túng tâm lý,
+                        biết dùng lời nói để lung lạc người khác. Dùng kiến thức
+                        học thuật để hợp thức hóa hành động sai trái của mình.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Động lực:</strong> Muốn
+                        trở thành người đầu tiên khai mở bí mật Trái Tim Aethel
+                        và ghi tên mình vào lịch sử. Sẵn sàng phản bội học trò
+                        và đồng nghiệp để đạt mục đích.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Xuất hiện:</strong> Cảnh 2
+                        – Lộ diện tại Hầm Mộ Nhà Tiên Tri Mù, nơi ông chính thức
+                        phản bội và hợp tác với Kael.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-gray-800/50 p-4 rounded-lg border border-gray-700"
+                    >
+                      <h4 class="font-semibold text-gray-400 text-lg">
+                        🕯️ Giáo Sư Hoàng An
+                      </h4>
+                      <p class="text-sm text-gray-400 mb-2">
+                        Nhân vật quá cố - Nguồn cảm hứng & di sản
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Ngoại hình:</strong> Nam,
+                        ngoài 70 tuổi, mái tóc bạc trắng, ánh mắt hiền nhưng sâu
+                        sắc. Xuất hiện qua ảnh, ghi âm, hoặc ký ức.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Tính cách:</strong> Đam mê
+                        tri thức, có phần mộng mơ, bị xã hội gọi là “kẻ điên”.
+                        Tin rằng Trái Tim Aethel không chỉ là báu vật, mà là
+                        phép thử với lòng người.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Điểm đặc biệt:</strong> Để
+                        lại hàng trăm bản ghi chép, mật mã thiên văn và bản đồ
+                        dẫn đến Thung lũng Vong Lãng. Có tầm ảnh hưởng sâu sắc
+                        tới thế giới quan của Lâm.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300"
+                          >Động lực (trong lore):</strong
+                        >
+                        Khám phá di sản Tula để tìm ra cách kết nối tri thức cổ
+                        và thế giới hiện đại mà không bị lòng tham dẫn lối.
+                      </p>
+                      <p class="text-sm">
+                        <strong class="text-gray-300">Xuất hiện:</strong> Chủ
+                        yếu qua nhật ký, hồi ức, hoặc cổng ký ức trong Cảnh Ẩn.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h4 class="font-semibold text-lg text-white mb-2">
+                    🤝 NPC phụ & Cung bậc nhân vật (tên, vai trò, cảm xúc)
+                  </h4>
+                  <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                    <li>
+                      <strong>Lão Trưởng K'aran (Trưởng làng Vong Lãng)</strong>
+                      — Người bảo tồn truyền thống, nghiêm nghị nhưng ấm áp.
+                      Cung bậc: hoài nghi → tin tưởng Lâm → biết ơn.
+                    </li>
+                    <li>
+                      <strong>Mira (bé thợ mỏ)</strong> — 12 tuổi, lạc quan, dẫn
+                      lối bí mật trong hầm mỏ. Cung bậc: sợ hãi → hi vọng.
+                    </li>
+                    <li>
+                      <strong>Bà Thu (thợ rèn)</strong> — ngoài 40, cay nghiệt
+                      vì mất người thân, sau hồi phục ký ức trở thành ally cứng
+                      rắn.
+                    </li>
+                    <li>
+                      <strong>Người sưu tập cổ (Informant)</strong> — thương gia
+                      lươn lẹo trung lập, bán tin và đồ với giá cao; cung bậc:
+                      tham lam → có thể đổi phe tùy hành động player.
+                    </li>
+                    <li>
+                      <strong>Người lính Chronos (henchmen named)</strong> —
+                      nhiều cấp bậc, tên biểu tượng như “Rook”, “Vesper” — giúp
+                      tạo cảm giác mối đe dọa hệ thống.
+                    </li>
+                  </ul>
+
+                  <h4 class="font-semibold text-lg text-white mb-2">
+                    👹 Kẻ thù & Boss chính
+                  </h4>
+                  <ul class="list-disc list-inside text-sm space-y-1">
+                    <li>
+                      <strong>Kael (boss chính)</strong> — chiến thuật: phối hợp
+                      công nghệ và đồng minh Chronos; đa pha.
+                    </li>
+                    <li>
+                      <strong>Vệ Binh Đá (Stone Warden)</strong> — boss trong
+                      Hầm Mộ; cổ xưa, đánh thức khi ai đó dùng bạo lực để cướp.
+                    </li>
+                    <li>
+                      <strong>Kẻ Sao Chép (The Mimic)</strong> — ám ảnh từ đền
+                      Chim Ưng; bộc lộ bản sao méo mó của Lâm / Naila.
+                    </li>
+                    <li>
+                      <strong>The Time Warden / Maze Beast</strong> — quái vật
+                      mê cung trong Cổng Ký Ức; gây áp lực thời gian.
+                    </li>
+                    <li>
+                      <strong>Trái Tim Aethel (final “entity”)</strong> — không
+                      chỉ boss vật lý mà còn là thử thách đạo đức; có hai (hoặc
+                      nhiều) kết thúc phụ thuộc lựa chọn.
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 mb-8"
+                >
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    🔀 Lựa chọn cuối cùng & Hệ quả (Endings)
+                  </h3>
+                  <div class="space-y-4">
+                    <div class="bg-purple-950/40 p-4 rounded-lg">
+                      <h4 class="font-semibold text-purple-300">
+                        Lựa chọn A — Người Bảo Vệ
+                      </h4>
+                      <p class="text-sm mt-1">
+                        Lâm quyết định để Trái Tim lại với Nguồn Cội. Kết quả:
+                        lời nguyền được hóa giải, Vong Lãng hồi sinh; Lâm ở lại
+                        hoặc trở thành người canh giữ. Chronos bị vạch trần; thế
+                        giới bên ngoài có thời gian để thích nghi. Tông cảm xúc:
+                        hy sinh, bảo tồn.
+                      </p>
+                    </div>
+                    <div class="bg-purple-950/40 p-4 rounded-lg">
+                      <h4 class="font-semibold text-purple-300">
+                        Lựa chọn B — Người Mở Lối
+                      </h4>
+                      <p class="text-sm mt-1">
+                        Lâm lấy Trái Tim ra hoặc đồng hóa với nó theo cách “giải
+                        phóng” (bước vào lõi). Kết quả: năng lượng lan tỏa, cứu
+                        chữa rộng lớn nhưng phá hủy/biến đổi Vong Lãng; mở cánh
+                        cổng đến vùng đất mới (hook cho phần sau). Tông cảm xúc:
+                        hy sinh cá nhân cho đại cuộc, rủi ro biến đổi.
+                      </p>
+                    </div>
+                <div
+                  class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 mb-8"
+                >
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    🎮 Gameplay hooks (từ lore — để thiết kế level & mechanics)
+                  </h3>
+                  <ul class="list-disc list-inside text-sm space-y-1">
+                    <li>Puzzle thiên văn & ánh sáng (Đền Chim Ưng).</li>
+                    <li>Puzzle âm thanh (chuông đá) — Hầm Mộ.</li>
+                    <li>
+                      Mê cung thời gian — cổng ký ức: mechanic đếm ngược + quái
+                      truy đuổi.
+                    </li>
+                    <li>
+                      Escape & stealth sequences — chạy khỏi Chronos hay hang
+                      sập.
+                    </li>
+                    <li>
+                      Choice-based final puzzle — thao tác với Thẻ Pha Lê / Trái
+                      Tim → 2 endings.
+                    </li>
+                    <li>
+                      Hệ thống “Hồi phục ký ức”: tương tự mẫu Dấu Ấn — hồi phục
+                      NPC mở dịch vụ, skill, hoặc quest.
+                    </li>
+                    <li>
+                      Collectible: Ba viên Ngọc Aethel (ứng dụng để mở hang
+                      Nguồn Cội).
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+                >
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    🧩 Hook cho phần tiếp theo / mở rộng (DLC / sequel)
+                  </h3>
+                  <p class="text-sm">
+                    Ở cuối nhật ký của Giáo sư Hoàng An xuất hiện biểu tượng và
+                    tọa độ mới: “Vương Miện” — gợi ý một lục địa khác, mở cánh
+                    cửa campaign mới: công nghệ Tula lan rộng, những thế lực mới
+                    xuất hiện, mạng lưới Chronos sâu hơn.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 class="text-2xl font-bold text-white mb-6">
+                  <span
+                    class="bg-green-500/20 text-green-300 rounded-lg px-3 py-1 text-xl mr-2"
+                    >Y3.3</span
+                  >
+                  Core Loop - Vòng Lặp Gameplay Chính
+                </h2>
+                <div
+                  class="bg-gray-900/70 p-4 rounded-xl border border-gray-700/50 mb-6 text-center text-sm font-semibold text-white"
+                >
+                  <p>
+                    Thám hiểm → Giải đố → Tránh/Đối đầu kẻ thù → Nhận phần
+                    thưởng → Tiến triển câu chuyện → Lặp lại
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                  <div class="space-y-8">
+                    <div
+                      class="bg-blue-900/40 p-6 rounded-2xl border border-blue-700/50"
+                    >
+                      <h3
+                        class="font-bold text-lg text-blue-300 mb-3 flex items-center"
+                      >
+                        <i data-lucide="move" class="mr-2"></i>1. Hành Động
+                        Chính
+                      </h3>
+                      <div class="space-y-2 text-sm">
+                        <p>
+                          <strong class="text-gray-300">Khám phá:</strong> Di
+                          chuyển qua các địa điểm như đền thờ, hầm mộ và núi
+                          lửa.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300">Giải đố:</strong> Giải
+                          mã các mật mã thiên văn, ghép địa đồ, điều khiển gương
+                          đá, chướng ngại vật.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Đối phó với kẻ thù:</strong
+                          >
+                          Né tránh, ẩn nấp các tay lính đánh thuê của Chronos và
+                          Kael.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Thu thập vật phẩm:</strong
+                          >
+                          Tìm kiếm manh mối và vật phẩm quý như địa đồ, thẻ pha
+                          lê, viên ngọc aethel.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="bg-orange-900/40 p-6 rounded-2xl border border-orange-700/50"
+                    >
+                      <h3
+                        class="font-bold text-lg text-orange-300 mb-3 flex items-center"
+                      >
+                        <i data-lucide="trending-up" class="mr-2"></i>3. Cải
+                        Tiến
+                      </h3>
+                      <div class="space-y-2 text-sm">
+                        <p>
+                          <strong class="text-gray-300"
+                            >Học kỹ năng mới:</strong
+                          >
+                          Giải mã nhanh hơn, leo trèo tốt hơn sau khi khám phá
+                          di tích Tula.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Mở khóa mộ ép chơi:</strong
+                          >
+                          Hoàn thành Đền Thờ → mở Hầm Mộ → mở Núi Lửa → Finale.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Mở rộng câu chuyện:</strong
+                          >
+                          Hé lộ thêm bí ẩn về Tula và quá khứ ông nội Lâm.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Nâng cấp vật phẩm:</strong
+                          >
+                          Tấm thẻ pha lê → Thẻ Thức Tỉnh (tăng thể lực, tốc độ).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-8">
+                    <div
+                      class="bg-green-900/40 p-6 rounded-2xl border border-green-700/50"
+                    >
+                      <h3
+                        class="font-bold text-lg text-green-300 mb-3 flex items-center"
+                      >
+                        <i data-lucide="check-circle" class="mr-2"></i>2. Phản
+                        Hồi
+                      </h3>
+                      <div class="space-y-2 text-sm">
+                        <p>
+                          <strong class="text-gray-300"
+                            >Phản hồi Tích cực:</strong
+                          >
+                          Tìm được manh mối, địa đồ, thẻ pha lê từ ký tự cổ.
+                          Nghe âm thanh "ting" khi giải đố thành công. Mở khóa
+                          khu vực mới, viên ngọc aethel.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Phản hồi Tiêu cực:</strong
+                          >
+                          Bị tấn công nếu phát hiện bởi kẻ địch. Thất bại giải
+                          đố -> phải chơi lại. Áp lực từ lính Chronos liên tục
+                          truy đuổi.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="bg-purple-900/40 p-6 rounded-2xl border border-purple-700/50"
+                    >
+                      <h3
+                        class="font-bold text-lg text-purple-300 mb-3 flex items-center"
+                      >
+                        <i data-lucide="star" class="mr-2"></i>4. Động Lực
+                      </h3>
+                      <div class="space-y-2 text-sm">
+                        <p>
+                          <strong class="text-gray-300"
+                            >Minh oan cho ông nội:</strong
+                          >
+                          Động lực chính - phục hồi danh dự cho Giáo sư Hoàng
+                          An.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Cứu Naila và dân làng:</strong
+                          >
+                          Tìm Trái Tim Aethel để hóa giải lời nguyền.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300"
+                            >Đối đầu với kẻ thù:</strong
+                          >
+                          Trận chiến với Kael và GS Trần thúc đẩy chiến đấu vì
+                          lý tưởng.
+                        </p>
+                        <p>
+                          <strong class="text-gray-300">Khám phá bí ẩn:</strong>
+                          Mục đích sống: không phải săn tìm cổ vật, mà là bảo vệ
+                          chúng.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-gray-900/70 p-4 rounded-xl border border-gray-700/50 text-center text-sm"
+                >
+                  <p class="text-white font-bold mb-2">
+                    Vòng lặp liên tục (Mỗi vòng ≈ 30-45 phút gameplay)
+                  </p>
+                  <div
+                    class="flex items-center justify-center space-x-2 text-xs"
+                  >
+                    <span
+                      class="bg-blue-900/70 text-blue-300 px-3 py-1 rounded-full"
+                      >Khám Phá Di Tích</span
+                    >
+                    <span>→</span>
+                    <span
+                      class="bg-green-900/70 text-green-300 px-3 py-1 rounded-full"
+                      >Giải Đố</span
+                    >
+                    <span>→</span>
+                    <span
+                      class="bg-yellow-900/70 text-yellow-300 px-3 py-1 rounded-full"
+                      >Stealth</span
+                    >
+                    <span>→</span>
+                    <span
+                      class="bg-purple-900/70 text-purple-300 px-3 py-1 rounded-full"
+                      >Phần Thưởng</span
+                    >
+                    <span>↺</span>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 class="text-2xl font-bold text-white mb-6">
+                  <span
+                    class="bg-pink-500/20 text-pink-300 rounded-lg px-3 py-1 text-xl mr-2"
+                    >Y3.4</span
+                  >
+                  Lore Pillar: Các Phân Cảnh Kịch Bản
+                </h2>
+                <div class="space-y-8">
+                  <div
+                    class="bg-pink-950/40 p-6 rounded-2xl border border-pink-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      🏔️ Phân Cảnh 0: Cảnh Mở Đầu – Di Sản Của Kẻ Mộng Mơ
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-pink-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Giọng dẫn trầm vang lên giữa khung cảnh một căn phòng
+                          phủ đầy bản đồ, bản thảo, và những ký hiệu cổ xưa. Bên
+                          ngoài, sấm chớp nổ tung giữa đêm mưa. Nhật Lâm ngồi
+                          trước bàn làm việc của ông nội, mở cuốn nhật ký cũ đã
+                          ngả vàng — bên trong là hàng loạt ký hiệu thiên văn,
+                          và một dòng chữ được khoanh tròn: “Trái tim không nằm
+                          ở nơi ta tìm, mà ở nơi ta nhớ.”
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-pink-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300"
+                              >GIỌNG DẪN (Lâm đọc nhật ký):</strong
+                            >
+                            “...Ngày 28 tháng 9. Họ nói ta điên. Nhưng ta đã
+                            thấy ánh sáng ấy, từ phương nam – nơi Thung lũng
+                            Vong Lãng nuốt chửng cả những kẻ can đảm nhất.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >LÂM (lẩm bẩm):</strong
+                            >
+                            “Thung lũng Vong Lãng... nơi ông dừng lại... và mình
+                            sẽ tiếp tục.”
+                          </p>
+                          <p class="text-gray-400">
+                            [Ánh chớp lóe sáng – bản đồ tự động lật sang trang
+                            có ký hiệu tọa độ. Một vệt ánh sáng giao nhau như
+                            dẫn đường.]
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >LÂM (quyết tâm):</strong
+                            >
+                            “Nếu ông không thể hoàn thành nó... thì cháu sẽ.”
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-pink-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>
+                            Màn tutorial: người chơi di chuyển quanh phòng,
+                            tương tác các ghi chú và bản đồ.
+                          </li>
+                          <li>Giải mật mã thiên văn mini để mở tọa độ.</li>
+                          <li>
+                            Kết thúc: cảnh chuyển sang Thung lũng – mở đầu hành
+                            trình.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-blue-950/40 p-6 rounded-2xl border border-blue-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      🏕️ Phân Cảnh 1: Mật Thư Trong Đền Thờ Chim Ưng
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-blue-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Thung lũng Vong Lãng, nơi sương mù che phủ cả ánh mặt
+                          trời. Lâm gặp Naila, cô gái bản địa đang tìm cách cứu
+                          dân làng khỏi lời nguyền của Trái Tim Aethel. Cả hai
+                          tiến vào Đền Thờ Chim Ưng, nơi gió hú và tượng đá canh
+                          giữ bí mật ngàn năm.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-blue-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300">NAILA:</strong> “Cậu
+                            không nên đến đây. Thung lũng này... nuốt lấy mọi kẻ
+                            tò mò.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Tôi đến
+                            để tìm sự thật. Ông tôi đã chết vì nó, tôi cần biết
+                            vì sao.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >NAILA (nhìn anh chăm chú):</strong
+                            >
+                            “Vậy chúng ta giống nhau. Tôi cần Trái Tim để cứu
+                            dân làng. Nhưng... đừng tin vào mọi truyền thuyết.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Hai người bước vào ngôi đền. Tượng chim ưng xoay
+                            theo hướng ánh sáng – bắt đầu puzzle.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Những
+                            ký hiệu này... là sao Tula! Nếu chỉnh đúng theo chu
+                            kỳ mặt trăng—”
+                          </p>
+                          <p class="text-gray-400">
+                            [Tiếng nổ vang. Kael và lính Chronos xuất hiện.]
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >KAEL (cười lạnh):</strong
+                            >
+                            “Giáo sư Hoàng An từng nói câu y hệt. Nhưng giờ ông
+                            ta chỉ là tro bụi. Đưa bản đồ cho ta, nhóc!”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">NAILA:</strong> “Chạy
+                            đi! Tôi sẽ chặn hắn lại!”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Không!
+                            Chúng ta cùng thoát!”
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-blue-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Puzzle ánh sáng & gương xoay thiên văn.</li>
+                          <li>Rượt đuổi stealth tránh lính Chronos.</li>
+                          <li>Mini-game ghép ký tự cổ thành “AETHEL”.</li>
+                          <li>
+                            Kết thúc: lấy được manh mối mới → “Hầm mộ Nhà Tiên
+                            Tri Mù”.
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-blue-300 mb-2">
+                          🎁 Kết quả
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Thu được mảnh đĩa đá cổ.</li>
+                          <li>Naila chính thức đồng hành cùng Lâm.</li>
+                          <li>Xuất hiện kẻ thù chính: Kael.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-green-950/40 p-6 rounded-2xl border border-green-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      🕯️ Phân Cảnh 2: Lời Nguyền Và Sự Phản Bội
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-green-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Hầm Mộ Nhà Tiên Tri Mù – không khí ngột ngạt, ánh sáng
+                          mờ của những đuốc cổ. Naila ngày càng yếu vì lời
+                          nguyền, còn Lâm phát hiện manh mối dẫn đến “Nguồn
+                          Cội”.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-green-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300"
+                              >NAILA (thở gấp):</strong
+                            >
+                            “Tôi... không còn nhiều thời gian... Trái tim đang
+                            hút sinh khí từ tôi.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Cố lên.
+                            Ông tôi từng nói, chỉ khi tìm thấy Nguồn Cội, lời
+                            nguyền mới dừng lại.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Một bóng người xuất hiện – Giáo sư Trần.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">GIÁO SƯ TRẦN:</strong>
+                            “Lâm… cuối cùng em cũng đến. Ta từng dạy em rằng tri
+                            thức là để cứu người. Nhưng đôi khi... để cứu nhân
+                            loại, phải đánh đổi.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >LÂM (sững sờ):</strong
+                            >
+                            “Thầy…? Không thể nào… Thầy là người của Chronos?”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">GIÁO SƯ TRẦN:</strong>
+                            “Ta chỉ chọn phe có thể hiện thực hóa ước mơ của
+                            Giáo sư Hoàng An.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Kael bước vào, giơ súng plasma về phía họ.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">KAEL:</strong> “Kết
+                            thúc trò chơi rồi. Đưa mảnh pha lê ra.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Đất rung chuyển. Vệ Binh Đá thức tỉnh.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >NAILA (hoảng hốt):</strong
+                            >
+                            “Lâm, chạy đi!”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Không,
+                            chúng ta cùng thoát!”
+                          </p>
+                          <p class="text-gray-400">
+                            (Cả hai chạy qua hang đang sụp. Một luồng sáng chiếu
+                            vào tấm pha lê – khắc hiện biểu tượng Nguồn Cội.)
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-green-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Puzzle ghép mảnh vỡ pha lê.</li>
+                          <li>Stealth để tránh Chronos.</li>
+                          <li>Boss mini: Vệ Binh Đá tấn công tất cả.</li>
+                          <li>Escape sequence: chạy khỏi hang sập.</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-green-300 mb-2">
+                          🎁 Kết quả
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Lấy được tấm thẻ pha lê chỉ về “Nguồn Cội”.</li>
+                          <li>Biết sự thật về sự phản bội của Giáo sư Trần.</li>
+                          <li>Naila bị lời nguyền ăn mòn nặng.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-cyan-950/40 p-6 rounded-2xl border border-cyan-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      💧 Cảnh Ẩn: Bí Mật Trong Cánh Cổng Thời Gian
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-cyan-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Sau thác nước mờ sương, Lâm và Naila phát hiện Cánh
+                          Cổng Ký Ức khắc hình chim ưng. Khi đặt tấm thẻ pha lê
+                          lên, ánh sáng xanh mở ra con đường thời gian.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-cyan-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Ông...
+                            chính là người đã mở cánh cổng này trước tôi.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >GIỌNG CỔ XƯA (vọng lại):</strong
+                            >
+                            “Nhưng ta đã không đủ dũng khí bước qua. Hãy tiếp
+                            tục, cháu ta.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">NAILA:</strong> “Cậu
+                            đang... nói chuyện với ai vậy?”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >LÂM (mỉm cười):</strong
+                            >
+                            “Với quá khứ. Và có lẽ... với tương lai nữa.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Lâm bước vào mê cung thời gian – bị truy đuổi bởi
+                            quái thú thời gian.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">GIỌNG CỔ XƯA:</strong>
+                            “Mọi kho báu đều đòi hỏi ký ức làm giá.”
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-cyan-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Mê cung đếm ngược thời gian.</li>
+                          <li>Puzzle tìm số ẩn mở cửa thoát.</li>
+                          <li>
+                            Kết thúc: tấm thẻ pha lê thức tỉnh, tăng tốc độ &
+                            thể lực.
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-cyan-300 mb-2">
+                          🎁 Kết quả
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Nâng cấp thẻ → “Thẻ Thức Tỉnh”.</li>
+                          <li>Biết rằng ông nội từng thất bại ở đây.</li>
+                          <li>Cánh cổng mở đường đến Nguồn Cội.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-orange-950/40 p-6 rounded-2xl border border-orange-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      🌋 Phân Cảnh 3: Cuộc Đua Tới Nguồn Cội
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-orange-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Một ngọn núi lửa đã tắt – trung tâm năng lượng của
+                          Thung lũng. Kael dẫn tàn quân Chronos truy đuổi, trong
+                          khi Lâm và Naila dùng địa hình để phản công.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-orange-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300">NAILA:</strong> “Chúng
+                            ta không thể cứ chạy mãi.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Không.
+                            Lần này, chúng ta sẽ đuổi ngược lại.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Cả hai thiết lập gương đá, bẫy cổ và dùng thẻ để
+                            điều khiển địa hình.)
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >KAEL (qua loa):</strong
+                            >
+                            “Thằng nhóc! Mày không hiểu sức mạnh của Trái Tim
+                            đâu!”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300">LÂM:</strong> “Tôi
+                            hiểu chứ – vì nó là niềm tin, không phải vũ khí.”
+                          </p>
+                          <p class="text-gray-400">
+                            (Khi Kael tiến vào hẻm núi, bẫy cổ khởi động, khóa
+                            hắn trong mảng dung nham kết tinh.)
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-orange-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Tránh dung nham phun trào.</li>
+                          <li>Puzzle phản chiếu ánh sáng qua gương đá.</li>
+                          <li>Phục kích Chronos.</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-orange-300 mb-2">
+                          🎁 Kết quả
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>Kael bị nhốt.</li>
+                          <li>Cổng hang Nguồn Cội mở ra.</li>
+                          <li>
+                            Naila suy yếu nghiêm trọng – lời nguyền đạt đỉnh.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-purple-950/40 p-6 rounded-2xl border border-purple-800"
+                  >
+                    <h3 class="text-xl font-bold text-white mb-4">
+                      💖 Phân Cảnh 4: Sự Lựa Chọn Của Trái Tim
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                      <div>
+                        <h4 class="font-semibold text-purple-300 mb-2">
+                          🌫️ Bối cảnh
+                        </h4>
+                        <p>
+                          Bên trong Nguồn Cội – không gian lung linh, xoắn ốc
+                          năng lượng ánh xanh. Giữa trung tâm là Trái Tim Aethel
+                          – khối cầu trong suốt, đập nhịp như trái tim người.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-purple-300 mb-2">
+                          💬 Lời thoại
+                        </h4>
+                        <div
+                          class="space-y-2 italic bg-gray-800/50 p-3 rounded-lg border-l-4 border-gray-600"
+                        >
+                          <p>
+                            <strong class="text-gray-300"
+                              >GIỌNG CỔ XƯA (vang vọng):</strong
+                            >
+                            “Hỡi người tìm kiếm, lấy ta đi – nhân loại sẽ được
+                            cứu. Nhưng nơi này sẽ hóa tro.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >NAILA (yếu ớt):</strong
+                            >
+                            “Nếu cậu lấy nó… dân làng tôi sẽ chết. Nhưng nếu
+                            không... thế giới ngoài kia sẽ lụi tàn.”
+                          </p>
+                          <p>
+                            <strong class="text-gray-300"
+                              >LÂM (nghẹn ngào):</strong
+                            >
+                            “Ông ơi... nếu là ông, ông sẽ chọn gì?”
+                          </p>
+                          <p class="text-gray-400">
+                            (Khoảnh khắc yên lặng. Trái Tim tỏa sáng mạnh hơn.)
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-purple-300 mb-2">
+                          🎮 Diễn biến Gameplay
+                        </h4>
+                        <ul class="list-disc list-inside">
+                          <li>
+                            Mê cung cuối cùng: puzzle Chuông Đá – gõ theo nhịp
+                            cổ Tula.
+                          </li>
+                          <li>Kết thúc bằng lựa chọn đạo đức (2 ending).</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-purple-300 mb-2">
+                          🎁 Kết quả
+                        </h4>
+                        <div class="space-y-4">
+                          <div
+                            class="bg-blue-900/40 p-4 rounded-xl border border-blue-700/50"
+                          >
+                            <h5 class="font-bold text-lg text-blue-200 mb-2">
+                              💠 Lựa chọn 1: Người Bảo Vệ
+                            </h5>
+                            <p class="mb-2">
+                              <strong class="text-gray-300">LÂM:</strong> “Không
+                              ai đáng bị hi sinh. Trái Tim thuộc về nơi này.”
+                            </p>
+                            <p>
+                              (Anh trả lại năng lượng vào lõi đất. Thung lũng nở
+                              hoa. Naila mở mắt, lời nguyền tan biến.)
+                            </p>
+                            <p class="mt-2">
+                              <strong class="text-gray-300">GIỌNG DẪN:</strong>
+                              “Lâm ở lại – người bảo vệ di sản của ông và vùng
+                              đất đã chữa lành chính anh.”
+                            </p>
+                            <p class="mt-2">
+                              <strong class="text-gray-300">Ending 1:</strong>
+                              Người Bảo Vệ – thế giới an lành, thung lũng hồi
+                              sinh.
+                            </p>
+                          </div>
+                          <div
+                            class="bg-yellow-900/40 p-4 rounded-xl border border-yellow-700/50"
+                          >
+                            <h5 class="font-bold text-lg text-yellow-200 mb-2">
+                              🔮 Lựa chọn 2: Người Mở Lối
+                            </h5>
+                            <p class="mb-2">
+                              <strong class="text-gray-300">LÂM:</strong> “Không
+                              có lời nguyền nào, chỉ là Trái Tim bị mắc kẹt quá
+                              lâu.”
+                            </p>
+                            <p>
+                              (Anh bước thẳng vào Trái Tim. Năng lượng bùng nổ,
+                              lan tỏa ra toàn thung lũng. Cổng sáng mở ra trên
+                              trời.)
+                            </p>
+                            <p class="mt-2">
+                              <strong class="text-gray-300"
+                                >NAILA (rơi lệ):</strong
+                              >
+                              “Cậu… đã mở lối cho cả thế giới mới.”
+                            </p>
+                            <p class="mt-2">
+                              <strong class="text-gray-300">GIỌNG DẪN:</strong>
+                              “Lâm tan vào luồng sáng, nhưng ánh sáng ấy sẽ
+                              không bao giờ tắt.”
+                            </p>
+                            <p class="mt-2">
+                              <strong class="text-gray-300">Ending 2:</strong>
+                              Người Mở Lối – thế giới mới mở ra, ánh sáng phủ
+                              khắp.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 text-center"
+              >
+                <h3 class="text-xl font-bold text-white mb-2">
+                  📜 Tổng Kết Kịch Bản:
+                </h3>
+                <p class="text-sm max-w-3xl mx-auto">
+                  Bốn phân cảnh chính tạo nên backstory của narrative, thể hiện
+                  hành trình của Lâm từ nhà khảo cổ nghi ngờ bản thân thành
+                  người hùng bảo vệ di sản. Mỗi cảnh kết hợp
+                  <strong class="text-gray-300"
+                    >stealth, puzzle, và story progression</strong
+                  >
+                  seamlessly, với lựa chọn đạo đức cuối cùng định hình số phận
+                  của Lâm, Naila và toàn bộ Thung lũng Vong Lãng.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nội dung Tab 4 (Ẩn) -->
+          <div class="tab-pane hidden" id="tab4">
+            <div
+              class="bg-yellow-900/20 p-6 rounded-2xl border border-yellow-700/50 mb-8"
+            >
+              <p class="text-sm font-semibold text-yellow-300">
+                ⏳ Timeline cốt truyện chính
+              </p>
+              <div class="flex items-center mt-4">
+                <img
+                  src="images/Logogame.png"
+                  alt="Logo nhỏ"
+                  class="rounded-md mr-3"
+                  width="100"
+                />
+                <div>
+                  <h3 class="font-semibold text-white">
+                    TRÁI TIM AETHEL: DI SẢN THỨC TỈNH
+                  </h3>
+                  <p class="text-sm text-gray-400">
+                    Hành trình minh oan và giải cứu thế giới
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50 mb-8"
+            >
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <strong class="text-blue-400">Mở đầu:</strong>
+                  <span class="text-gray-400"
+                    >Kế thừa di sản và bắt đầu hành trình</span
+                  ><br />Lâm, nhà khảo cổ trẻ, theo manh mối từ nhật ký của ông
+                  nội để đến Thung lũng Vong Lãng, nơi anh gặp Naila và bắt đầu
+                  cuộc phiêu lưu tìm kiếm Trái Tim Aethel.
+                </li>
+                <li>
+                  <strong class="text-green-400">Phát triển:</strong>
+                  <span class="text-gray-400"
+                    >Đối mặt với kẻ thù và những sự phản bội</span
+                  ><br />Lâm và Naila vượt qua các thử thách ở Đền Thờ và Hầm
+                  Mộ, đối mặt với sự truy đuổi của Kael và sự phản bội của Giáo
+                  sư Trần. Họ thu thập các manh mối quan trọng dẫn đến Nguồn
+                  Cội.
+                </li>
+                <li>
+                  <strong class="text-orange-400">Cao trào:</strong>
+                  <span class="text-gray-400"
+                    >Cuộc đua tới Nguồn Cội và vô hiệu hóa kẻ thù</span
+                  ><br />Tại núi lửa, Lâm sử dụng trí thông minh và kiến thức
+                  khảo cổ để đặt bẫy, vô hiệu hóa Kael và đội quân Chronos, mở
+                  đường đến hang động chứa Trái Tim Aethel.
+                </li>
+                <li>
+                  <strong class="text-red-400">Kết thúc:</strong>
+                  <span class="text-gray-400">Sự lựa chọn định mệnh</span
+                  ><br />Bên trong Nguồn Cội, Lâm đứng trước lựa chọn cuối cùng:
+                  cứu lấy Thung lũng hoặc giải phóng sức mạnh của Trái Tim ra
+                  thế giới. Quyết định của anh sẽ định hình số phận của mọi
+                  người.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+            >
+              <h3 class="text-lg font-bold text-white mb-4">
+                💖 Cung bậc cảm xúc chi tiết
+              </h3>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center"
+              >
+                <div class="flex flex-col items-center space-y-2">
+                  <div
+                    class="w-16 h-16 bg-blue-900/40 rounded-full flex items-center justify-center border border-blue-700/50"
+                  >
+                    <i data-lucide="search" class="text-blue-300"></i>
+                  </div>
+                  <p class="text-xs font-semibold">
+                    Tò mò<br /><span class="text-gray-400 font-normal"
+                      >Khám phá di sản</span
+                    >
+                  </p>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                  <div
+                    class="w-16 h-16 bg-green-900/40 rounded-full flex items-center justify-center border border-green-700/50"
+                  >
+                    <i data-lucide="sparkles" class="text-green-300"></i>
+                  </div>
+                  <p class="text-xs font-semibold">
+                    Hy vọng<br /><span class="text-gray-400 font-normal"
+                      >Tìm thấy đồng minh</span
+                    >
+                  </p>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                  <div
+                    class="w-16 h-16 bg-red-900/40 rounded-full flex items-center justify-center border border-red-700/50"
+                  >
+                    <i data-lucide="heart-crack" class="text-red-300"></i>
+                  </div>
+                  <p class="text-xs font-semibold">
+                    Đau khổ<br /><span class="text-gray-400 font-normal"
+                      >Đối mặt sự phản bội</span
+                    >
+                  </p>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                  <div
+                    class="w-16 h-16 bg-purple-900/40 rounded-full flex items-center justify-center border border-purple-700/50"
+                  >
+                    <i data-lucide="brain-circuit" class="text-purple-300"></i>
+                  </div>
+                  <p class="text-xs font-semibold">
+                    Quyết đoán<br /><span class="text-gray-400 font-normal"
+                      >Lấy lại thế chủ động</span
+                    >
+                  </p>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                  <div
+                    class="w-16 h-16 bg-yellow-900/40 rounded-full flex items-center justify-center border border-yellow-700/50"
+                  >
+                    <i data-lucide="anchor" class="text-yellow-300"></i>
+                  </div>
+                  <p class="text-xs font-semibold">
+                    Trách nhiệm<br /><span class="text-gray-400 font-normal"
+                      >Định hình tương lai</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nội dung Tab 5 (Ẩn) -->
+          <div class="tab-pane hidden" id="tab5">
+            <div
+              class="bg-violet-900/20 p-6 rounded-2xl border border-violet-700/50 mb-8"
+            >
+              <p class="text-sm font-semibold text-violet-300">
+                🗺️ Cảnh & Nhiệm vụ
+              </p>
+              <div class="flex items-center mt-4">
+                <img
+                  src="images/Logogame.png"
+                  alt="Logo nhỏ"
+                  class="rounded-md mr-3"
+                  width="100"
+                />
+                <div>
+                  <h3 class="font-semibold text-white">
+                    TRÁI TIM AETHEL: DI SẢN THỨC TỈNH
+                  </h3>
+                  <p class="text-sm text-gray-400">
+                    4 phân cảnh chính và các nhiệm vụ then chốt
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-12">
+              <!-- Cảnh 1: Đền Thờ Chim Ưng -->
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <img
+                  src="images/Canh1.jpg"
+                  alt="Đền Thờ Chim Ưng"
+                  class="rounded-lg w-full object-cover mb-6"
+                />
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Cảnh 1: Mật Thư Trong Đền Thờ Chim Ưng
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">
+                  Nhiệm vụ 1: Giải mã di sản & Thu thập viên ngọc đầu tiên
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Diễn biến cảnh
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Mở đầu:</strong> Hành
+                        trình của Lâm bắt đầu khi anh đặt chân đến Thung lũng
+                        Vong Lãng, một vùng đất chìm trong sương mù và những lời
+                        đồn đại. Tại đây, định mệnh đưa anh gặp Naila, cô gái
+                        bản địa mang trong mình gánh nặng của lời nguyền. Cả hai
+                        nhận ra họ có chung mục đích và cùng nhau tiến vào Đền
+                        Thờ Chim Ưng, một tàn tích hùng vĩ của người Tula, nơi
+                        các cơ chế thiên văn cổ đại vẫn còn hoạt động.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Phát triển:</strong> Bên
+                        trong đền thờ, họ phải đối mặt với những câu đố hóc búa,
+                        đòi hỏi sự kết hợp giữa kiến thức khảo cổ của Lâm và sự
+                        am hiểu địa phương của Naila. Họ phải xoay những chiếc
+                        gương khổng lồ để hội tụ ánh sáng, căn chỉnh các chòm
+                        sao Tula để mở ra những con đường bí mật, từng bước khám
+                        phá ra một bản đồ đá cổ.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Cao trào:</strong> Ngay
+                        khi Lâm giải được mật mã cuối cùng và tấm bản đồ đá lộ
+                        diện, Kael và đội quân Chronos bất ngờ ập đến. Ngôi đền
+                        cổ biến thành một chiến trường của trí tuệ và sự lẩn
+                        trốn. Lâm và Naila phải lợi dụng các cơ chế của ngôi đền
+                        để tạo ra bóng tối, đánh lạc hướng và thoát khỏi sự truy
+                        đuổi gắt gao.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Kết thúc:</strong> Bằng
+                        cách kích hoạt một cơ chế phòng thủ cổ xưa, Lâm và Naila
+                        trốn thoát thành công. Họ không chỉ mang theo viên ngọc
+                        aethel đầu tiên mà còn có được mảnh đĩa đá khắc ghi con
+                        đường dẫn đến địa điểm tiếp theo: Hầm Mộ Nhà Tiên Tri
+                        Mù.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Gameplay chính
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Nhiệm vụ chính:</strong>
+                      </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>
+                          Giải đố thiên văn: căn chỉnh gương, hội tụ ánh sáng.
+                        </li>
+                        <li>
+                          Lén lút và ẩn nấp khỏi lính Chronos trong môi trường
+                          phức tạp của ngôi đền.
+                        </li>
+                        <li>Tìm kiếm và thu thập viên ngọc aethel thứ nhất.</li>
+                      </ul>
+                      <p><strong class="text-gray-300">Phần thưởng:</strong></p>
+                      <p>Viên ngọc Aethel I + Mảnh đĩa đá dẫn đến Hầm Mộ.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                    Gameplay Preview - Combat & UI
+                  </h4>
+                  <img
+                    src="images/Canh1GP.jpg"
+                    alt="Gameplay Preview Cảnh 1"
+                    class="rounded-lg w-full object-cover"
+                  />
+                  <p class="text-xs text-center italic text-gray-500 mt-2">
+                    Concept Art: Minh họa gameplay combat và UI trong Đền Thờ.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cảnh 2: Hầm Mộ Tiên Tri -->
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <img
+                  src="images/Canh2.jpg"
+                  alt="Hầm Mộ Tiên Tri"
+                  class="rounded-lg w-full object-cover mb-6"
+                />
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Cảnh 2: Lời Nguyền Và Sự Phản Bội
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">
+                  Nhiệm vụ 2: Khám phá sự thật & Thu thập viên ngọc thứ hai
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Diễn biến cảnh
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Mở đầu:</strong> Lâm và
+                        Naila tiến vào hầm mộ tối tăm, một nơi ẩm ướt và đầy cạm
+                        bẫy. Lời nguyền của Trái Tim bắt đầu tác động mạnh mẽ
+                        lên Naila, khiến cô yếu dần. Họ phải dựa vào nhau để
+                        giải những câu đố dựa trên âm thanh và giai điệu cổ xưa
+                        của người Tula.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Phát triển:</strong> Càng
+                        vào sâu, những cái bẫy càng trở nên tinh vi hơn. Họ tìm
+                        thấy những mảnh vỡ của một tấm thẻ pha lê, vật phẩm có
+                        khả năng khuếch đại năng lượng tâm linh, và phải tìm
+                        cách ghép chúng lại.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Cao trào:</strong> Bất ngờ
+                        lớn nhất xảy ra khi Giáo sư Trần, người thầy mà Lâm từng
+                        kính trọng, xuất hiện và tiết lộ ông đã liên thủ với
+                        Kael. Đúng lúc sự phản bội được phơi bày, một Vệ Binh Đá
+                        khổng lồ, người bảo vệ hầm mộ, thức giấc và tấn công tất
+                        cả, khiến cả khu vực bắt đầu sụp đổ.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Kết thúc:</strong> Trong
+                        gang tấc, Lâm và Naila chạy thoát khỏi hang động đang
+                        sụp. Họ lấy được viên ngọc aethel thứ hai và tấm thẻ pha
+                        lê đã được ghép lại. Tấm thẻ giờ đây phát sáng, chỉ
+                        đường đến địa điểm cuối cùng: Núi Lửa Nguồn Cội.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Gameplay chính
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Nhiệm vụ chính:</strong>
+                      </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>
+                          Giải đố âm thanh: lặp lại giai điệu cổ Tula để mở
+                          đường.
+                        </li>
+                        <li>Tìm và ghép các mảnh vỡ của thẻ pha lê.</li>
+                        <li>
+                          Sống sót qua màn rượt đuổi của Vệ Binh Đá và chạy trốn
+                          khỏi hầm mộ (escape sequence).
+                        </li>
+                      </ul>
+                      <p><strong class="text-gray-300">Phần thưởng:</strong></p>
+                      <p>
+                        Viên ngọc Aethel II + Thẻ pha lê (dẫn đến Cảnh 3 và Cảnh
+                        Ẩn).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                    Gameplay Preview - Combat & UI
+                  </h4>
+                  <img
+                    src="images/Canh2GP.jpg"
+                    alt="Gameplay Preview Cảnh 2"
+                    class="rounded-lg w-full object-cover"
+                  />
+                  <p class="text-xs text-center italic text-gray-500 mt-2">
+                    Concept Art: Minh họa gameplay combat với Vệ Binh Đá và UI
+                    trong Hầm Mộ.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cảnh Ẩn: Bí Mật Trong Cánh Cổng Thời Gian -->
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <img
+                  src="images/Canhan.jpg"
+                  alt="Cánh Cổng Thời Gian"
+                  class="rounded-lg w-full object-cover mb-6"
+                />
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Cảnh Ẩn: Bí Mật Trong Cánh Cổng Thời Gian
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">
+                  Nhiệm vụ phụ: Đối mặt với quá khứ & Nâng cấp sức mạnh
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Diễn biến cảnh
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Mở đầu:</strong> Bằng việc
+                        sử dụng tấm thẻ pha lê tại một thác nước bí mật, Lâm và
+                        Naila mở ra Cánh Cổng Ký Ức, một con đường dẫn vào một
+                        chiều không gian của thời gian. Lâm cảm nhận được sự
+                        hiện diện quen thuộc của ông nội.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Phát triển:</strong> Bên
+                        trong, Lâm thấy những hình ảnh rời rạc về quá khứ của
+                        ông nội, hiểu được nỗi ám ảnh và cả những sai lầm của
+                        ông. Anh nhận ra ông mình cũng đã từng đứng trước cánh
+                        cổng này nhưng không dám bước qua.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Cao trào:</strong> Để
+                        thoát ra, Lâm phải giải một câu đố trong một mê cung
+                        thời gian đang sụp đổ, trong khi bị một Quái Thú Thời
+                        Gian truy đuổi. Anh phải sử dụng những gì đã học về ông
+                        nội để tìm ra lời giải trước khi bị mắc kẹt vĩnh viễn.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Kết thúc:</strong> Lâm
+                        vượt qua mê cung, không chỉ thoát ra mà còn khiến tấm
+                        thẻ pha lê hấp thụ năng lượng thời gian, nâng cấp thành
+                        "Thẻ Thức Tỉnh". Anh hiểu sâu hơn về di sản của mình và
+                        có thêm sức mạnh để tiếp tục cuộc hành trình.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Gameplay chính
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Nhiệm vụ chính:</strong>
+                      </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Giải đố trong mê cung thời gian có giới hạn.</li>
+                        <li>Tìm các con số ẩn để mở cửa thoát.</li>
+                        <li>
+                          Sống sót khỏi sự truy đuổi của Quái Thú Thời Gian.
+                        </li>
+                      </ul>
+                      <p><strong class="text-gray-300">Phần thưởng:</strong></p>
+                      <p>
+                        Nâng cấp "Thẻ Pha Lê" thành "Thẻ Thức Tỉnh" (tăng tốc độ
+                        và thể lực).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                    Gameplay Preview - Combat & UI
+                  </h4>
+                  <img
+                    src="images/CanhanGP.jpg"
+                    alt="Gameplay Preview Cảnh Ẩn"
+                    class="rounded-lg w-full object-cover"
+                  />
+                  <p class="text-xs text-center italic text-gray-500 mt-2">
+                    Concept Art: Minh họa gameplay trong Cánh Cổng Thời Gian.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cảnh 3: Núi Lửa Nguồn Cội -->
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <img
+                  src="images/Canh3.jpg"
+                  alt="Núi Lửa Nguồn Cội"
+                  class="rounded-lg w-full object-cover mb-6"
+                />
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Cảnh 3: Cuộc Đua Tới Nguồn Cội
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">
+                  Nhiệm vụ 3: Đặt bẫy kẻ thù & Thu thập viên ngọc cuối cùng
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Diễn biến cảnh
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Mở đầu:</strong> Thẻ pha
+                        lê dẫn Lâm và Naila đến chân một ngọn núi lửa đã tắt,
+                        nơi được cho là Nguồn Cội. Đây là chặng đua cuối cùng,
+                        với Kael và tàn quân Chronos truy đuổi ngay phía sau.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Phát triển:</strong> Không
+                        còn chạy trốn, Lâm và Naila quyết định phản công. Họ vận
+                        dụng kiến thức khảo cổ và sự am hiểu địa hình để kích
+                        hoạt các cơ chế cổ xưa, biến chính ngọn núi lửa thành
+                        một cái bẫy khổng lồ, từ việc gây lở đá đến chuyển hướng
+                        các dòng dung nham.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Cao trào:</strong> Lâm lừa
+                        được Kael vào một hẻm núi hẹp. Bằng cách giải một câu đố
+                        gương đá phức tạp, anh kích hoạt một cái bẫy cổ xưa,
+                        nhốt Kael và đội quân của hắn lại trong một nhà tù bằng
+                        dung nham kết tinh, vô hiệu hóa mối đe dọa chính mà
+                        không cần một trận chiến trực diện.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Kết thúc:</strong> Với
+                        Kael bị mắc kẹt, Lâm và Naila tiến vào hang động trung
+                        tâm của ngọn núi lửa, nơi họ thu thập viên ngọc aethel
+                        cuối cùng. Ba viên ngọc hợp nhất, mở ra con đường đến
+                        nơi cất giữ Trái Tim Aethel.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Gameplay chính
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Nhiệm vụ chính:</strong>
+                      </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>
+                          Tương tác với môi trường để tạo bẫy (đá lăn, dung
+                          nham).
+                        </li>
+                        <li>
+                          Giải đố gương đá để mở lối đi bí mật hoặc kích hoạt
+                          bẫy.
+                        </li>
+                        <li>Tìm kiếm viên ngọc aethel thứ ba.</li>
+                      </ul>
+                      <p><strong class="text-gray-300">Phần thưởng:</strong></p>
+                      <p>Viên ngọc Aethel III.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                    Gameplay Preview - Combat & UI
+                  </h4>
+                  <img
+                    src="images/Canh3GP.jpg"
+                    alt="Gameplay Preview Cảnh 3"
+                    class="rounded-lg w-full object-cover"
+                  />
+                  <p class="text-xs text-center italic text-gray-500 mt-2">
+                    Concept Art: Minh họa gameplay giải đố môi trường tại Núi
+                    Lửa.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Cảnh 4: Finale -->
+              <div
+                class="bg-gray-900/70 p-6 rounded-2xl border border-gray-700/50"
+              >
+                <img
+                  src="images/Canh4.jpg"
+                  alt="Sự Lựa Chọn Của Trái Tim"
+                  class="rounded-lg w-full object-cover mb-6"
+                />
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Cảnh 4 (Finale): Sự Lựa Chọn Của Trái Tim
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">
+                  Nhiệm vụ cuối cùng: Định đoạt số phận
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Diễn biến cảnh
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Mở đầu:</strong> Sử dụng
+                        ba viên ngọc, Lâm và Naila mở cánh cửa cuối cùng, bước
+                        vào một không gian siêu thực nơi Trái Tim Aethel đang lơ
+                        lửng, tỏa ra năng lượng thuần khiết.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Phát triển:</strong> Một
+                        giọng nói cổ xưa, linh hồn của Trái Tim, vang lên, đưa
+                        ra một tối hậu thư: giải phóng sức mạnh của nó để "cứu
+                        thế giới" nhưng sẽ hủy diệt thung lũng, hoặc để nó lại
+                        để cứu thung lũng nhưng thế giới sẽ không nhận được sự
+                        chữa lành.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Cao trào:</strong> Lâm đối
+                        mặt với quyết định đạo đức khó khăn nhất cuộc đời. Anh
+                        phải lựa chọn giữa việc hoàn thành di sản của ông nội
+                        theo cách diễn giải của riêng mình: bảo vệ di sản hay
+                        chia sẻ nó với thế giới, dù phải trả giá đắt.
+                      </p>
+                      <p>
+                        <strong class="text-gray-300">Kết thúc:</strong> Dựa
+                        trên lựa chọn của người chơi, game sẽ dẫn đến một trong
+                        hai kết thúc: "Người Bảo Vệ", nơi Lâm trở thành người
+                        canh giữ Trái Tim và chữa lành cho thung lũng; hoặc
+                        "Người Mở Lối", nơi anh giải phóng năng lượng của Trái
+                        Tim, mở ra một kỷ nguyên mới cho thế giới.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">
+                      Gameplay chính
+                    </h4>
+                    <div class="space-y-4">
+                      <p>
+                        <strong class="text-gray-300">Nhiệm vụ chính:</strong>
+                      </p>
+                      <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>
+                          Giải đố Chuông Đá cuối cùng bằng cách gõ lại các giai
+                          điệu đã học theo đúng nhịp điệu Tula.
+                        </li>
+                        <li>
+                          Đưa ra lựa chọn cuối cùng của câu chuyện, quyết định
+                          kết thúc của game.
+                        </li>
+                      </ul>
+                      <p><strong class="text-gray-300">Phần thưởng:</strong></p>
+                      <p>
+                        Một trong hai kết thúc của game, mở ra những đoạn cắt
+                        cảnh cuối cùng khác nhau.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                    Gameplay Preview - Combat & UI
+                  </h4>
+                  <img
+                    src="images/Canh4GP.jpg"
+                    alt="Gameplay Preview Cảnh 4"
+                    class="rounded-lg w-full object-cover"
+                  />
+                  <p class="text-xs text-center italic text-gray-500 mt-2">
+                    Concept Art: Minh họa lựa chọn cuối cùng của người chơi và
+                    UI tương tác.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Phần Footer -->
+    <footer class="mt-16 border-t border-gray-800 bg-gray-900/50">
+      <div class="container mx-auto px-4 md:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Cột 1: Giới thiệu -->
+          <div class="col-span-1 md:col-span-2 lg:col-span-1">
+            <div class="flex items-center space-x-3 mb-4">
+              <img
+                src="images/Logogame.png"
+                alt="Logo Trái Tim Aethel"
+                class="rounded-lg"
+                width="100"
+              />
+              <h3 class="font-bold text-white text-xl">TRÁI TIM AETHEL</h3>
+            </div>
+            <p class="text-sm text-gray-400">
+              Đây là tài liệu thiết kế chi tiết cho game "Trái Tim Aethel: Di
+              Sản Thức Tỉnh", một dự án game phiêu lưu giải đố góc nhìn từ trên
+              xuống. Tài liệu bao gồm các yếu tố cốt lõi, kế hoạch phát triển,
+              kịch bản, và chi tiết các màn chơi.
+            </p>
+          </div>
+
+          <!-- Cột 2: Điều hướng nội dung -->
+          <div>
+            <h4 class="font-semibold text-purple-300 mb-4">
+              Nội dung tài liệu
+            </h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <strong class="text-gray-300">Y1: Game Elements</strong>
+                <p class="text-gray-400 text-xs">
+                  Phân tích 5 yếu tố cơ bản của game: Mục tiêu, Quy tắc, Thử
+                  thách, Tương tác và Phản hồi.
+                </p>
+              </li>
+              <li>
+                <strong class="text-gray-300">Y2: Development</strong>
+                <p class="text-gray-400 text-xs">
+                  Mô tả 5 giai đoạn phát triển game, từ ý tưởng ban đầu đến xây
+                  dựng gameplay chi tiết.
+                </p>
+              </li>
+              <li>
+                <strong class="text-gray-300">Y3: Game Script</strong>
+                <p class="text-gray-400 text-xs">
+                  Đi sâu vào kịch bản, phân tích USP, xây dựng thế giới quan,
+                  nhân vật và vòng lặp gameplay.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cột 3: Dòng thời gian & Cảnh chơi -->
+          <div>
+            <h4 class="font-semibold text-purple-300 mb-4">
+              Cốt truyện & Màn chơi
+            </h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <strong class="text-gray-300">Plot Timeline</strong>
+                <p class="text-gray-400 text-xs">
+                  Trình bày dòng thời gian các sự kiện chính và cung bậc cảm xúc
+                  của nhân vật qua từng giai đoạn.
+                </p>
+              </li>
+              <li>
+                <strong class="text-gray-300">Scenes & Quests</strong>
+                <p class="text-gray-400 text-xs">
+                  Mô tả chi tiết từng phân cảnh, nhiệm vụ, diễn biến gameplay và
+                  kết quả của mỗi màn chơi chính.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Thông tin nhóm -->
+          <div>
+            <h4 class="font-semibold text-purple-300 mb-4">Thông tin dự án</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li class="flex items-center">
+                <i data-lucide="users" class="w-4 h-4 mr-2 text-gray-500"></i>
+                <span>Nhóm QAK</span>
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="book-open"
+                  class="w-4 h-4 mr-2 text-gray-500"
+                ></i>
+                <span>GA20301 - Assignment</span>
+              </li>
+              <li class="flex items-center">
+                <i data-lucide="swords" class="w-4 h-4 mr-2 text-gray-500"></i>
+                <span>Adventure Puzzle Game</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500"
+        >
+          <p>&copy; 2025 Nhóm QAK. All rights reserved.</p>
+          <p>Tài liệu này được tạo ra cho mục đích học tập.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Kích hoạt thư viện icon Lucide
+        lucide.createIcons();
+
+        const tabNav = document.getElementById("tab-nav");
+        const tabItems = tabNav.querySelectorAll(".tab-item");
+        const tabContent = document.getElementById("tab-content");
+        const tabPanes = tabContent.querySelectorAll(".tab-pane");
+
+        tabItems.forEach((item) => {
+          item.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Xóa class 'tab-active' khỏi tất cả các tab
+            tabItems.forEach((i) => {
+              i.classList.remove("tab-active");
+              i.classList.add(
+                "text-gray-400",
+                "hover:text-gray-300",
+                "hover:border-gray-500",
+                "border-transparent"
+              );
+            });
+
+            // Thêm class 'tab-active' cho tab được click
+            this.classList.add("tab-active");
+            this.classList.remove(
+              "text-gray-400",
+              "hover:text-gray-300",
+              "hover:border-gray-500",
+              "border-transparent"
+            );
+
+            // Lấy data-tab của tab được click
+            const tabId = this.getAttribute("data-tab");
+
+            // Ẩn tất cả nội dung tab
+            tabPanes.forEach((pane) => {
+              pane.classList.add("hidden");
+              pane.classList.remove("active");
+            });
+
+            // Hiển thị nội dung tab tương ứng
+            const activePane = document.getElementById(tabId);
+            if (activePane) {
+              activePane.classList.remove("hidden");
+              activePane.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

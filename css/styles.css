@@ -1,0 +1,389 @@
+/*
+ * TRÁI TIM AETHEL: DI SẢN THỨC TỈNH
+ * Custom Stylesheet v3.1 - Future Vision (Final Cleaned Version)
+ * Created & Enhanced by Gemini
+*/
+
+/* 1. FONT IMPORTS & ROOT VARIABLES
+----------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --bg-dark: #0A0F1A; /* Nền xanh đen sâu thẳm */
+    --bg-panel: #111827;
+    --primary-glow: #a78bfa;
+    --secondary-glow: #c4b5fd;
+    --accent-blue: #3b82f6;
+    --accent-red: #f43f5e;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-color: rgba(167, 139, 250, 0.2);
+}
+
+/* 2. BASE & LAYOUT STYLES
+----------------------------------------------------------------*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    /* **UNIQUE EFFECT**: Animated Starfield/Nebula Background */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(167, 139, 250, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15), transparent 50%);
+    animation: background-pan 45s linear infinite alternate;
+    background-size: 200% 200%;
+    overflow-x: hidden;
+}
+
+/* **UNIQUE EFFECT**: Starfield Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle fill="%23FFF" cx="100" cy="100" r="1.5"/><circle fill="%23FFF" cx="200" cy="300" r="1"/><circle fill="%23FFF" cx="350" cy="450" r="1"/><circle fill="%23FFF" cx="500" cy="200" r="1.2"/><circle fill="%23FFF" cx="650" cy="550" r="1.5"/><circle fill="%23FFF" cx="750" cy="150" r="1"/><circle fill="%23FFF" cx="50" cy="600" r="1.1"/><circle fill="%23FFF" cx="420" cy="50" r="1.3"/><circle fill="%23FFF" cx="250" cy="700" r="1"/><circle fill="%23FFF" cx="580" cy="750" r="1.2"/></svg>');
+    animation: stars 120s linear infinite;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-panel);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-glow), var(--accent-blue));
+    border-radius: 10px;
+    border: 3px solid var(--bg-panel);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--secondary-glow), #60a5fa);
+}
+
+/* 3. TYPOGRAPHY & HEADER
+----------------------------------------------------------------*/
+h1, h2, h3, h4, h5 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+h1 {
+    /* Enhanced Neon Effect */
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 12px #fff, 0 0 25px var(--primary-glow), 0 0 40px var(--primary-glow), 0 0 60px var(--primary-glow);
+    animation: flicker 10s infinite alternate;
+}
+
+header .flex span {
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* 4. CARDS & INTERACTIVE ELEMENTS
+----------------------------------------------------------------*/
+.glow-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: rgba(17, 24, 39, 0.7); /* Tăng độ trong suốt */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-card:hover {
+    transform: translateY(-10px); /* Bỏ hiệu ứng scale để ảnh không bị to ra */
+    box-shadow: 0 15px 50px rgba(167, 139, 250, 0.3);
+}
+
+.glow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    background: linear-gradient(120deg, var(--primary-glow), var(--accent-blue), var(--primary-glow)) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    animation: border-pan 4s linear infinite;
+    background-size: 200% 100%;
+}
+
+.glow-card:hover::before {
+    opacity: 1;
+}
+
+/* 5. TABS NAVIGATION & CONTENT
+----------------------------------------------------------------*/
+.tab-item {
+    position: relative;
+    padding-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.tab-active {
+    color: var(--secondary-glow);
+    border-color: transparent;
+}
+
+.tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-glow);
+    animation: draw-underline 0.5s ease forwards;
+    box-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--primary-glow);
+}
+
+.tab-pane.active {
+    animation: fade-slide-in 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* **UNIQUE EFFECT**: HUD Grid Overlay on Panels */
+#tab-content [class*="bg-"] {
+    position: relative;
+    overflow: hidden;
+    animation: content-breathing 5s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+#tab-content [class*="bg-"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    animation: grid-pan 15s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#tab-content [class*="bg-"] > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+#tab-content [class*="bg-"]:hover {
+    border-color: var(--secondary-glow) !important;
+    transform: scale(1.01);
+    animation-play-state: paused;
+}
+
+/* 6. SPECIFIC ELEMENT STYLES
+----------------------------------------------------------------*/
+/* Custom list bullets */
+ul {
+    list-style: none;
+}
+
+ul li {
+    position: relative;
+    padding-left: 20px;
+}
+
+ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-glow);
+    font-size: 12px;
+    animation: bullet-pulse 2s infinite;
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
+/* Dialogue boxes */
+.italic[class*="bg-"] {
+    border-left-color: var(--accent-blue) !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Icon animations */
+[data-lucide] {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+[data-lucide]:hover {
+    transform: scale(1.2);
+    color: var(--secondary-glow);
+}
+
+/* 7. SCENE & QUESTS IMAGE STYLES
+----------------------------------------------------------------*/
+/* Container cho banner của mỗi cảnh (để kích hoạt overlay) */
+#tab5 .space-y-12 > .bg-gray-900\/70 {
+    position: relative; /* Cần thiết để định vị lớp phủ */
+}
+
+/* Ảnh banner chính cho mỗi cảnh (ảnh trên cùng) */
+#tab5 .space-y-12 > div > img.mb-6 {
+    max-height: 250px; /* Giảm chiều cao của ảnh banner */
+    width: 100%;
+    object-fit: cover; /* Lấp đầy khung, có thể cắt bớt ảnh theo chiều dọc */
+    object-position: center; /* Căn giữa ảnh trong khung */
+}
+
+/* Lớp phủ tối cho ảnh banner chính */
+#tab5 .space-y-12 > .bg-gray-900\/70::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;      /* Tương ứng với padding p-6 của thẻ cha */
+    left: 1.5rem;     /* Tương ứng với padding p-6 của thẻ cha */
+    right: 1.5rem;    /* Tương ứng với padding p-6 của thẻ cha */
+    height: 250px;    /* Chiều cao khớp với chiều cao tối đa của ảnh */
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0) 60%);
+    border-radius: 0.5rem; /* Bo tròn góc khớp với ảnh (rounded-lg) */
+    z-index: 1;
+    pointer-events: none; /* Cho phép click xuyên qua lớp phủ */
+    transition: background 0.4s ease;
+}
+
+/* Hiệu ứng khi di chuột qua thẻ chứa cảnh */
+#tab5 .space-y-12 > .bg-gray-900\/70:hover::before {
+     background: linear-gradient(to top, rgba(17, 24, 39, 0.5) 0%, rgba(17, 24, 39, 0) 60%);
+}
+
+/* Ảnh Gameplay Preview (ảnh dưới cùng trong mỗi cảnh) */
+#tab5 .mt-8 > img.object-cover {
+    display: block; /* Đảm bảo margin: auto hoạt động */
+    width: 90%; /* Thu nhỏ chiều ngang của ảnh còn 90% */
+    max-width: 800px; /* Đặt chiều rộng tối đa */
+    height: auto; /* Giữ đúng tỷ lệ ảnh */
+    max-height: 450px; /* Giới hạn chiều cao tối đa */
+    margin-left: auto; /* Tự động căn giữa ảnh */
+    margin-right: auto; /* Tự động căn giữa ảnh */
+    object-fit: contain; /* Vừa khít ảnh trong khung, không bị cắt xén */
+}
+
+
+/* 8. FOOTER
+----------------------------------------------------------------*/
+footer {
+    background: transparent;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-glow);
+    box-shadow: 0 0 10px var(--primary-glow);
+    animation: footer-line-scan 10s linear infinite;
+}
+
+footer h4 {
+    text-shadow: 0 0 8px var(--primary-glow);
+}
+
+footer li {
+    padding-left: 0;
+}
+
+footer li::before {
+    content: none;
+}
+
+
+/* 9. KEYFRAME ANIMATIONS
+----------------------------------------------------------------*/
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 3px rgba(167, 139, 250, 0.2); transform: scale(1); }
+    50% { box-shadow: 0 0 10px rgba(167, 139, 250, 0.5); transform: scale(1.05); }
+}
+
+@keyframes draw-underline {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+@keyframes border-pan {
+    from { background-position: 0% 0%; }
+    to { background-position: -200% 0%; }
+}
+
+@keyframes background-pan {
+    from { background-position: 0% 0%; }
+    to { background-position: 100% 100%; }
+}
+
+@keyframes fade-slide-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes content-breathing {
+    0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.05); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px var(--primary-glow),
+            0 0 80px var(--primary-glow),
+            0 0 90px var(--primary-glow);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes grid-pan {
+    from { background-position: 0 0; }
+    to { background-position: 2rem 2rem; }
+}
+
+@keyframes bullet-pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes stars {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50%, -50%); }
+}
+
+@keyframes footer-line-scan {
+    0% {
+        left: 0;
+        width: 100px;
+    }
+    50% {
+        left: calc(100% - 100px);
+        width: 100px;
+    }
+    100% {
+        left: 0;
+        width: 100px;
+    }
+}
